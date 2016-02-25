@@ -1,8 +1,9 @@
-83cd5427cd6950bfa9938363e0c40609 *DESCRIPTION
-ed159af4ddc449afb608a6365c57ebdb *NAMESPACE
-a44fe15c20e3909ce005125f4ddb7ae2 *NEWS
+75b795d16ce0c853de331ca100345cb1 *DESCRIPTION
+6d7fc660edb34b6c4533c82ed73d1635 *NAMESPACE
+1be164be026fa377235ff1b0e8250238 *NEWS
 34da762a72ed661c8c2907e05bf4b3cf *R/logitp.R
 77c58966dbb74bfc329f144ec42da45b *R/meanp.R
+5f50f273eb58968dd7866948b88faf67 *R/metap-internal.R
 89b57f076cac1075475fb797db7b0888 *R/schweder.R
 73ebf773ffb5db0fabaac7952c3ea73f *R/sumlog.R
 ff832ae2273061e3f2859892e06e9c04 *R/sump.R
@@ -18,9 +19,10 @@ c723731a945de3823421c85fb840d62b *data/edgington.rda
 597f127d8eefb38d6dec94c1da9ba0c3 *data/rosenthal.rda
 9929b1d34b35e8c16e8a06a532888e64 *data/teachexpect.rda
 061b0f5f18e2c840e9ecd860e4d17104 *data/validity.rda
+2b1e71b2097a6f3f4315a28990761bcf *inst/CITATION
 d26b89ff06b263f743ec73465e6f329e *man/logitp.Rd
 e811aa457d5585372e1156eb7008c629 *man/meanp.Rd
-64e76bd0824d61b4671a12c68418fd0c *man/metap-package.Rd
+a6090f6ecf1788eb411d098db9d3a160 *man/metap-package.Rd
 07cb37bfd54e95c510fd7cda3174dfe3 *man/package-data.Rd
 46c269e4f89bd553a2285d22e48a50f1 *man/schweder.Rd
 e6e9bc5e71929e701c0bfe2fc57d16a9 *man/sumlog.Rd

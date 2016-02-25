@@ -1,3 +1,12 @@
+Changes in version 0.6-2
+   - importFrom added for CRAN
+   - Description enhanced
+
+Changes in version 0.6-1
+   - new maintainer email address
+   - added CITATION file
+   - this version never uploaded to CRAN
+
 Changes in version 0.6
    - added weights to sumz
    - updated documentation

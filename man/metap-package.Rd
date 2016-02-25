@@ -21,7 +21,7 @@ an informal graphical test due to Schweder and Spjotvol
 and the lowest slope line of Benjamini and
 Hochberg.
 }
-\author{Michael Dewey <info@aghmed.fsnet.co.uk>}
+\author{Michael Dewey <lists@dewey.myzen.co.uk>}
 \references{
 Becker, B J. Combining significance levels. In
 Cooper, H and Hedges, L V, editors
