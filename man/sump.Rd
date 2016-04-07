@@ -37,6 +37,10 @@ The values of \eqn{p} should be such that
 is not true.
 An error is given if possibly as a result of removing
 them fewer than two valid \eqn{p} values remain.
+A warning is given when the internal calculations
+are likely to have been subject to numerical error
+and an alternative method should be used to check
+the result.
 
 The plot method for class \sQuote{\code{metap}}
 calls \code{\link{schweder}} on the valid
@@ -44,7 +48,7 @@ calls \code{\link{schweder}} on the valid
 }
 \value{An object of class \sQuote{\code{sump}} and
 \sQuote{\code{metap}}, a list with entries
-  \item{psum}{The transformed sum of the \eqn{p}-values}
+  \item{p}{The transformed sum of the \eqn{p}-values}
   \item{conservativep}{See details}
   \item{validp}{The input vector with illegal values removed}
 }

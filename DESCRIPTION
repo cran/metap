@@ -1,8 +1,8 @@
 Package: metap
 Type: Package
 Title: Meta-Analysis of Significance Values
-Version: 0.6-2
-Date: 2016-02-18
+Version: 0.7
+Date: 2016-04-05
 Author: Michael Dewey
 Maintainer: Michael Dewey <lists@dewey.myzen.co.uk>
 Description: The canonical way to perform meta-analysis
@@ -11,9 +11,10 @@ Description: The canonical way to perform meta-analysis
    meta-analysis of significance values, a
    number of data-sets to replicate published results, and a
    routine for graphical display.
+URL: http://www.dewey.myzen.co.uk/meta/meta.html
 License: GPL-2
 LazyLoad: yes
 NeedsCompilation: no
-Packaged: 2016-02-22 13:29:37 UTC; Michael
+Packaged: 2016-04-05 06:04:56 UTC; Michael_2
 Repository: CRAN
-Date/Publication: 2016-02-25 00:47:55
+Date/Publication: 2016-04-07 18:27:29

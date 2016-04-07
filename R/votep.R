@@ -14,7 +14,7 @@ function(p, alpha = c(0.5, 0.5)) {
       warning("Some studies omitted")
    }
    if((pos + neg) <= 0) {
-      warning("All p values within limits")
+      warning("All p values are within specified limits of alpha")
       p <- 1
    } else {
       p = binom.test(pos, pos + neg, 0.5, alternative = "greater")$p.value

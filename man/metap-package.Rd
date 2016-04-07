@@ -8,8 +8,8 @@
 \tabular{ll}{
 Package: \tab metap\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2012-10-03\cr
+Version: \tab 0.7\cr
+Date: \tab 2016-04-05\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
@@ -20,6 +20,13 @@ It also provdes a display and
 an informal graphical test due to Schweder and Spjotvol
 and the lowest slope line of Benjamini and
 Hochberg.
+
+There is a vignette.
+Some further documentation and,
+possibly, a development version
+may be seen at
+\url{http://www.dewey.myzen.co.uk/meta/meta.html}.
+
 }
 \author{Michael Dewey <lists@dewey.myzen.co.uk>}
 \references{

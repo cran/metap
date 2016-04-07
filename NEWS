@@ -1,3 +1,13 @@
+Changes in version 0.7
+   - added vignette
+   - minor bug fixes
+   
+Changes in version 0.6-3
+   - test for cancellation error in sump
+   - minor warnings fixes
+   - updated documentation
+   - this version never uploaded to CRAN
+   
 Changes in version 0.6-2
    - importFrom added for CRAN
    - Description enhanced
