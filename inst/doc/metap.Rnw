@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-%\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb}
 %\usepackage{mydef2}
 \usepackage[round]{natbib}
 \usepackage{parskip,url}
@@ -24,6 +24,11 @@ $p$--values
 (significance values)
 and their implementation
 in the package \pkg{metap}.
+It also contains some commentary on
+the performance of the various algorithms
+under a small number of different
+scenrios with
+some hints on the choice of method.
 
 The problem of meta--analysis of $p$--values is of course
 not completely unconnected with the more general issue
@@ -59,7 +64,7 @@ if each study has produced a proportion and the goal is
 to synthesise them to a common estimate or analyse the
 differences between them then the standard methods
 are appropriate not the ones outlined here.
-The $p$--values here are significance levels.
+The $p$--values in this document are significance levels.
 
 \subsection{Notation}
 
@@ -71,6 +76,80 @@ $p_{[1]} \le p_{[2]}, \dots, \le p_{[k]}$
 and weights
 $w_i, i = 1, \dots, k$.
 Logarithms are natural.
+A function for combining $p$--values is denoted $g$.
+
+The methods are referred to by the name of the
+function in \func{metap}.
+Table \ref{funcs} shows other
+descriptions of each method.
+
+\begin{table}[htbp]
+\begin{tabular}{lll}
+Function name & \multicolumn{2}{c}{Description(s)} \\[1ex]
+\func{logitp} & & Logistic\\
+\func{meanp} \\
+\func{maximump} \\
+\func{minimump} & Tippett's method \\
+\func{sumlog} & Fisher's method & Chi square (2 df)\\
+\func{sump} & Edgington's method & Uniform\\
+\func{sumz} & Stouffer's method & Normal\\
+\func{votep} \\
+\func{wilkinsonp} & Wilkinson's method \\
+\end{tabular}
+\caption{Methods considered in this document}
+\label{funcs}
+\end{table}
+
+\section{Theoretical results}
+
+There have been various attempts to clarify the
+problem and to discuss optimality
+of the various methods.
+A detailed account was provided by
+\citet{liptak58} although the readers is cautioned that
+this requires a
+certain familiarity with the methods
+of probability theory.
+
+\citet{birnbaum54} considered the property of
+admissibility.
+A method is admissible if when it rejects $H_0$ for
+a set of $p_i$ it will also reject $H_0$ for
+$P^*_i$ where $p^*_i \le p_i$ for all $i$.
+He considered that Fisher's and Tippett's method were admissible.
+See also \citet{owen09}.
+
+He also points out the problem
+is poorly specified.
+This may
+account for the number of methods available
+and their differing behaviour.
+The null hypothesis $H_0$ is well defined,
+that all $p_i$ have a uniform distribution on the unit interval.
+There are
+two classes of alternative hypothesis
+\begin{itemize}
+\item
+$H_A$: all $p_i$ have the same (unknown)
+non--uniform, non--increasing density,
+\item
+$H_B$:
+at least one $p_i$ has an (unknown)
+non--uniform, non--increasing density.
+\end{itemize}
+
+If all the tests being combined come from
+what are basically replicates then $H_A$ is appropriate
+whereas if they are of different kinds
+of test or different conditions
+then $H_B$ is appropriate.
+Note that Birnbaum specifically considers the
+possibility that the tests being combined may be
+very different 
+for instance some tests of means, some of variances,
+and so on.
+
+\section{Preparation for meta--analysis of $p$--values}
 
 \subsection{Preliminaries}
 
@@ -79,7 +158,8 @@ You then need to load the package.
 <<>>=
 library(metap)
 @
-\section{Preparation for meta--analysis of $p$--values}
+
+\subsection{Directionality}
 
 It is usual to have a directional hypothesis, for
 instance that treatment is better than control.
@@ -100,6 +180,25 @@ two2one(pvals, two = istwo, invert = toinvert)
 Note in particular the way in which $0.9$ is
 converted under the different scenarios.
 
+<<echo = FALSE>>=
+data(validity)
+@
+
+\subsection{Plotting}
+
+<<>>=
+print(validity)
+@
+
+\begin{figure}[tbp]
+<<fig = TRUE>>=
+par(pin = c(3, 3))
+schweder(validity)
+@
+\caption{Simple example of plot using \func{schweder}}
+\label{simple}
+\end{figure}
+
 It would be a wise precaution to examine the $p$--values
 graphically or otherwise before subjecting them to further analysis.
 A function \func{schweder} is provided for this purpose.
@@ -110,49 +209,41 @@ for the plot is \citet{schweder82}
 the function uses a different choice of axes due
 to
 \citet{benjamini00}.
-<<echo = FALSE>>=
-data(validity)
-@
 We will use an example dataset on the validity of student
 ratings quoted in \citet{becker94}.
-<<>>=
-print(validity)
-@
-
-\begin{figure}[htbp]
-<<fig = TRUE>>=
-schweder(validity)
-@
-\caption{Simple example of plot}
-\label{simple}
-\end{figure}
+Figure \ref{simple} shows the plot from \func{schweder}.
 
 \func{schweder} also offers the possibility of drawing one of 
 a number of straight line summaries.
-The three possible straight line summaries are:
+The three possible straight line summaries are
+shown in Figure \ref{withlines} and are:
 \begin{itemize}
 \item
-the lowest slope line of Benjaimin and Hochberg drawn by default
+the lowest slope line of Benjaimin and Hochberg
+which is drawn by default
 as solid,
 \item
 a least squares line drawn passing through the point
 $k+1, 1$
 and using a specified fraction of the points
-drawn by default as dotted,
+which is drawn by default as dotted,
 \item
 a line with user specified
-intercept and slope drawn by default as dashed.
+intercept and slope
+which is drawn by default as dashed.
 \end{itemize}
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 <<fig = TRUE>>=
-data(validity)
+par(pin = c(3, 3))
 schweder(validity, drawline = c("bh", "ls", "ab"),
    ls.control = list(frac = 0.5), ab.control = list(a = 0, b = 0.01))
 @
 \caption{Example of plot with lines added}
 \label{withlines}
 \end{figure}
+
+\subsection{Reporting problems in the primary studies}
 
 Another issue is what to do with studies which have simply reported
 on whether a conventional level of significance like 0.05
@@ -166,37 +257,160 @@ as having $p=1$ (or $p=0.5$
 if it is known that the direction was right)
 although this is very conservative.
 
-\section{Methods using transformation of the $p$--values}
+\section{The methods}
+
+\subsection{Comparison scenarios}
+
+To provide a standard of comparison
+we shall use the following two situations.
+Some authors have also used the case of exactly two
+$p_i$.
+
+\subsubsection{What if all $p_i = p$?\label{twopisection}}
+
+Perhaps surprisingly there are substantial differences here
+as we shall see when we look at each method.
+We describe how the returned value
+varies with $p_i$ and $k$.
+
+<<echo = FALSE>>=
+genvec <- function(pvals, kvals, fun, name) {
+   ps <- length(pvals)
+   ks <- length(kvals)
+   temp <- matrix(-1, nrow = ps, ncol = ks)
+   for(i in 1:ps)
+   for(j in 1:ks) {
+      temp[i, j] <- fun(rep(pvals[i], kvals[j]))$p
+   }
+   temp2 <- as.vector(temp)
+   res <- data.frame(method = rep(name, length(temp2)),
+      p = rep(pvals, ks),
+      k = rep(kvals, each = ps),
+      g = temp2
+   )
+   res
+}
+@
+
+<<echo = FALSE>>=
+   kvals <- c(4, 5, 6, 8, 10, 15, 20)
+   pvals <- c(0.2, 0.3, 0.3679, 0.4, 0.5, 0.6)
+   dat <- rbind(
+      genvec(pvals, kvals, logitp, "logitp"),
+      genvec(pvals, kvals, meanp, "meanp"),
+      genvec(pvals, kvals, maximump, "maximump"),
+      genvec(pvals, kvals, minimump, "minimump"),
+      genvec(pvals, kvals, sumlog, "sumlog"),
+      genvec(pvals, kvals, sump, "sump"),
+      genvec(pvals, kvals, sumz, "sumz"),
+      genvec(pvals, kvals, votep, "votep")
+   )
+@
+
+\begin{figure}[htbp]
+<<echo = FALSE, fig = TRUE>>=
+   lattice::xyplot(g ~ k | method, groups = p, type = "l", data = dat,
+      auto.key = list(space = "left", lines = TRUE, title = "p"),
+      ylab = "g(p)"
+   )
+@
+\caption{Behaviour of the methods for $k$ values of $p=p_i$}
+\label{equalp}
+\end{figure}
+
+\subsubsection{Cancellation}
+
+When the collection of primary studies
+contains a number of values significant in both directions
+for example four studies having $p$--values
+0.001, 0.001, 0.999, 0.999
+the methods can give very different results.
+If the intention of the synthesis is to examine a directional
+hypothesis one would want a method where these cancelled out.
+We shall use those four values as our
+example.
+
+\subsection{Methods using transformation of the $p$--values}
 
 One class of methods relies on transforming the $p$--values
 and then combining them.
 
-\subsection{The method of summation of logs, Fisher's method}
+\subsubsection{The method of summation of logs, Fisher's method}
 
 The method relies on the fact that
 \begin{equation}
 \sum_{i=1}^{k} - 2 \log p_i
 \end{equation}
-is a chi-squared with $2 k$ df where $k$ is the number
-of studies.
+is a chi-squared with $2 k$ df.
+This works because $- 2 \log p_i$ is a $\chi^2_2$
+and the sum of $\chi^2$ is itself a $\chi^2$
+with degrees of freedom equal to the sum of the degrees
+of freedom of the
+individual $\chi^2$.
 Of course the sum of the log of the $p_i$
 is also the log of the product of the $p_i$.
 Fisher's method is provided in \func{sumlog}.
 
-\subsection{The method of summation of $z$ values, Stouffer's method}
+When all the $p_i=p$
+this method returns
+a value which
+decreases with $k$
+when $p<0.32$, increases with $k$
+when $p>0.37$, and in between
+increases with $k$ and then
+decreases.
+Some detailed algebra provided in a post
+to stats.stackexchange.com by Christoph Hanck
+suggests that the breakpoint is $e^{-1} = 0.3679$
+so that where the $p_i$ are less than that then for a sufficiently
+large $k$ the result will be significant and not if above that.
+Over the range of $k$ we are plotting this bound is not
+yet closely approached.
+Hanck's plot suggests that $k$ must be several hundred
+for this to happen.
+
+This method does not cancel significant
+values in both direction and returns a significant
+result for our example.
+<<>>=
+pvals <- c(0.001, 0.001, 0.999, 0.999)
+sumlog(pvals)
+@
+
+It would of course be possible to generalise this to use
+transformation to $\chi^2$ with any other number
+of degrees of freedom rather than 2.
+\citet{lancaster61} suggests that this is highly correlated
+with \func{sumlog}.
+
+\subsubsection{The method of summation of $z$ values, Stouffer's method}
 
 Defined as
 \begin{equation}
 \frac{\sum_{i=1}^k z(p_i)}{\sqrt{k}}
 \end{equation}
 
-is a standard normal deviate where $k$ is the number of studies,
-$z()$ is the quantile function of the normal
+is a standard normal deviate where
+$z$ is the quantile function of the normal
 distribution.
+
+The method of summation of $z$
+values is provided in \func{sumz}.
+It returns a value for our $p_i=p$
+example which
+decreases with $k$ when $p$ below 0.5
+and increases above.
+
+This method does cancel significant values in both
+directions.
+
+<<>>=
+sumz(pvals)
+@
 
 A weighted version is available
 \begin{equation}
-\frac{\sum_{i=1}^k (w_i z(p_i))}{\sqrt {\sum_{i=1}^k w_i ^ 2}}
+\frac{\sum_{i=1}^k w_i z(p_i)}{\sqrt {\sum_{i=1}^k w_i ^ 2}}
 \end{equation}
 
 where $w_i$ are the weights.
@@ -206,11 +420,12 @@ In the absence of effect sizes (in which case a method for
 combining effect sizes would be more appropriate anyway)
 best results are believed to be obtained with weights
 proportional to the square root of the sample sizes
-\citep{zaykin11}.
-The method of summation of $z$
-values is provided in \func{sumz}.
+\citep{zaykin11} following \citet{liptak58}.
+At the moment weighting is only provided in \func{sumz} as this
+is the only method for which a published example is accessible.
 
-\subsection{The method of summation of logits}
+
+\subsubsection{The method of summation of logits}
 
 Defined as
 \begin{equation}
@@ -221,9 +436,25 @@ where
 \begin{equation}
 C = \sqrt\frac{k \pi^2 (5 k + 2)}{3(5 k + 4)}
 \end{equation}
-and $k$ is the number of studies.
 This method is provided in \func{logitp}.
-\subsection{Examples}
+The constant was arrived at by equating
+skewness and kurtosis with that of the $t$--distribution
+\citep{loughin04}.
+
+This method returns a value for our $p_i=p$
+example which
+decreases with $k$ when $p$ below 0.5
+and increases above.
+
+This method does cancel significant values in both
+directions.
+
+<<>>=
+logitp(pvals)
+@
+
+
+\subsubsection{Examples for \func{sumlog}, \func{sumz}, and \func{logitp}}
 Using the same example dataset which we have already plotted
 
 <<>>=
@@ -231,9 +462,12 @@ sumlog(validity)
 sumz(validity)
 logitp(validity)
 @
-\section{Methods using untransformed $p$--values}
 
-\subsection{The method of minimum $p$ and Wilkinson's method}
+As can be seen these are in quite good agreement.
+
+\subsection{Methods using untransformed $p$--values}
+
+\subsubsection{The method of minimum $p$ and Wilkinson's method}
 
 The minimum $p$ method is usually described in terms
 of a rejection at the $\alpha_*$ level of the
@@ -251,7 +485,31 @@ Wilkinson's method is provided in \func{wilkinsonp} and a
 convenience function \func{minimump}
 with its own \code{print} method is provided for
 the minimum $p$ method.
-\subsection{The method of summation of $p$--values}
+It is also possible to use the method for the
+maximum $p$ (that is $r=k$) and a convenience function \func{maximump}
+is provided for that purpose.
+
+
+These methods return a value for our $p_i=p$
+example which
+always increases with $k$
+which is true for
+\func{minimump}
+and
+which always decreases with $k$
+which is true for
+\func{maximump}
+
+The minimum $p$ method does not cancel significant
+values in both direction and returns a significant
+result for our example
+but the maximum $p$ does cancel.
+<<>>=
+minimump(pvals)
+maximump(pvals)
+@
+
+\subsubsection{The method of summation of $p$--values, Edgington's method\label{sump}}
 
 Define
 \begin{equation}
@@ -266,9 +524,21 @@ then this method is defined as
 \end{equation}
 
 where there are $k$ studies and the series continues until the
-term in parentheses in the numerator $(S-i)$
+term in in the numerator $(S-i)$
 becomes negative \citep{edgington72a}.
 This method is provided in \func{sump}.
+
+This method returns a value for our $p_i=p$
+example which
+decreases with $k$ when $p$ below 0.5
+and increases above.
+
+This method does cancel significant values in both
+directions.
+
+<<>>=
+sump(pvals)
+@
 
 Some authors use a simpler version,
 for instance \citet{rosenthal78} in the text
@@ -291,27 +561,55 @@ of $S$ and in that case recourse might be made to
 \func{sumz} or \func{logitp} which have similar
 properties.
 
-\subsection{The mean $p$ method}
+\subsubsection{The mean $p$ method}
 
 This is defined as
 \begin{equation}
-z = (0.5 - \bar{p}) \sqrt{12k}
+\begin{aligned}
+z &= (0.5 - \bar{p}) \sqrt{12k}\\
+\bar p &= \frac{\sum_{i=1}^k p_i}{k}
+\end{aligned}
 \end{equation}
 which is a standard normal \citep{edgington72b}
 and
-where $\bar p = \frac{\sum_{i=1}^k p_i}{k}$.
-\subsection{Examples}
+where .
+Although this method is attributed to Edgington
+when the phrase Edgington's method is used
+it refers to the method of summation of $p$--values
+described above in Section \ref{sump}.
+
+This method returns a value for our $p_i=p$
+example which
+decreases with $k$ when $p$ below 0.5
+and increases above.
+
+This method does cancel significant values in both
+directions.
+
+<<>>=
+meanp(pvals)
+@
+
+
+
+\subsubsection{Examples for \func{minimump}, \func{maximump}, \func{sump}, and \func{meanp}}
 <<>>=
 minimump(validity)
+maximump(validity)
 sump(validity)
 meanp(validity)
 @
-\section{Other methods}
 
-\subsection{The method of vote--counting}
+Agreement here is not so good especially for the maximump method.
+
+\subsection{Other methods}
+
+\subsubsection{The method of vote--counting}
 
 A simple way of looking at the problem is
 vote counting.
+Strictly speaking this is not a method which combines
+$p$--values in the same sense as the other method.
 If most of the studies have produced results in favour of the
 alternative hypothesis irrespective of whether any of them is
 individually significant then that might be regarded as evidence
@@ -324,43 +622,79 @@ For instance one might only
 count studies which have reached some conventional level of
 statistical significance in the two different directions.
 
+This method returns a value for our $p_i=p$
+example which
+is 1 above 0.5 and otherwise invariant with $p$
+but decreases with $k$.
+
+This method does cancel significant values in both
+directions.
+
+<<>>=
+votep(pvals)
+@
+
+\subsection{Examples of \func{votep}}
+
 <<>>=
 votep(validity)
 @
-\section{Comparison of methods}
 
-\subsection{Weighting}
+\section{Loughin's recommendations}
 
-As mentioned above it is possible to weight the $p$--values.
-At the moment this is only provided in \func{sumz} as this
-is the only method for which a published example is accessible.
+In his simulation study \citet{loughin04} carried out extensive comparisons.
+He bases his recommendations on criteria of structure and the
+arrangement of evidence against $H_0$.
+
+Under structure he considers
+three cases with the following recommendations:
+emphasis on small $p$--values (\func{sumlog} and \func{minimump}),
+emphasis on large $p$--values (\func{maximump} and \func{sump}),
+and equal emphasis (\func{logitp} and \func{sumz}).
+
+Under arrangement of evidence he considers
+where this is concentrated.
+His recommendations are summarised in Table
+\ref{loughin}.
+
+\begin{table}[htbp]
+\begin{tabular}{ll}
+Equal in all tests & $k < 10$ \func{sump}, \func{maximump} \\
+ & Any $k$ \func{sumz}, \func{logitp} \\
+Some in all tests & $k < 10$ \func{sump}, \func{maximump} \\
+ & Any $k$ \func{sumz}, \func{logitp} \\
+In majority of tests & \func{sumz}, \func{logitp} \\
+In minority of tests & Moderate or strong evidence \func{sumlog} \\
+ & Any power \func{sumz}, \func{logitp} \\
+In one test only & Strong total evidence \func{minimup} \\
+ & Moderate total evidence \func{sumlog} \\
+ & Weak total evidence \func{sumz}, \func{logitp} \\
+\end{tabular}
+\caption{Loughin's recommendations for method choice}
+\label{loughin}
+\end{table}
+
+\section{Other considerations}
+
 
 \subsection{Directionality}
 
 When the collection of primary studies
 contains a number of values significant in both directions
-for example four studies having $p$--values
-0.001, 0.001, 0.999, 0.999
+we have seen that
 the methods can give very different results.
 If the intention of the synthesis is to examine a directional
 hypothesis one would want a method where these cancelled out.
-Note that of the methods considered here the method
-of the sum of logs and Wilkinson's method (and its special case minimum $p$)
-do not cancel out
-and report a significant result for this example.
-As an example we use \func{sumlog} and \func{sumz}.
-<<>>=
-pvals <- c(0.001, 0.001, 0.999, 0.999)
-sumlog(pvals)
-sumz(pvals)
-@
 Clearly the choice should be made on scientific grounds
 not on the baiss of the outcome.
 
-\section{Miscellanea}
+
+\subsection{Extractor functions}
 
 The standard \code{print} and \code{plot} methods
 are provided.
+
+\subsection{Legal values for $p_i$}
 
 \begin{table}[htbp]
 \begin{tabular}{lccl}
@@ -374,7 +708,7 @@ are provided.
 \code{votep} & Y & Y \\
 \code{wilkinson} & Y & Y \\
 \end{tabular}
-\caption{Restrictions}
+\caption{Restrictions on values of $p_i$}
 \label{restrictions}
 \end{table}
 Not all methods work with $p=0$ or $p=1$.
@@ -389,6 +723,12 @@ least upper bound of the
 values which would still round to zero to the given number of decimal places.
 So you might replace 0.00 with 0.005, 0.000 with 0.0005
 and so on.
+Similar action can be taken for values given as unity.
+
+\subsection{Reading}
+
+An annotated bibliography is provided by \citet{cousins08}
+
 \section{Feedback}
 
 I aim to include any method for which there exists a published

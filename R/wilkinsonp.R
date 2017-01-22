@@ -22,6 +22,14 @@ function(p, r = 1, alpha = 0.05) {
    class(res) <- c("wilkinsonp", "metap")
    res
 }
+maximump <- function(p,  alpha = 0.05) {
+   keep <- (p >= 0) & (p <= 1)
+   validp <- p[keep]
+   k <- length(validp)
+   res <- wilkinsonp(p, r = k, alpha)
+   class(res) <- c("maximump", "metap")
+   res
+}
 minimump <- function(p,  alpha = 0.05) {
    res <- wilkinsonp(p, r = 1, alpha)
    class(res) <- c("minimump", "metap")
@@ -33,8 +41,12 @@ print.wilkinsonp <- function(x, ...) {
    cat("p = ", p, " using ", paste(r, "th minimum p", sep = ""), "\n")
    invisible(x)
 }
+print.maximump <- function(x, ...) {
+   p <- x$p
+   cat("p = ", p, " using maximum p", "\n")
+   invisible(x)
+}
 print.minimump <- function(x, ...) {
-   r <- x$r
    p <- x$p
    cat("p = ", p, " using minimum p", "\n")
    invisible(x)

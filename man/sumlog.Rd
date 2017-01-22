@@ -1,11 +1,14 @@
 \name{sumlog}
 \alias{sumlog}
+\alias{Fisher's method}
+\alias{chi-square (2) method}
 \alias{print.sumlog}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Combine p-values by the sum of logs method
 }
 \description{Combine \eqn{p}-values by the sum of logs method,
-also known as Fisher's method}
+also known as Fisher's method, and sometimes as the
+chi-square (2) method.}
 \usage{
 sumlog(p)
 \method{print}{sumlog}(x, ...)

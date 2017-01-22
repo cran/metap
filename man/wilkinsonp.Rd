@@ -1,21 +1,27 @@
 \name{wilkinsonp}
 \alias{wilkinsonp}
+\alias{maximump}
 \alias{minimump}
+\alias{Tippett's method}
 \alias{print.wilkinsonp}
+\alias{print.maximump}
 \alias{print.minimump}
 \title{Combine p-values using Wilkinson's method}
 \description{Combine \eqn{p}-values using Wilkinson's method}
 \usage{
 wilkinsonp(p, r = 1, alpha = 0.05)
+maximump(p, alpha = 0.05)
 minimump(p, alpha = 0.05)
 \method{print}{wilkinsonp}(x, ...)
+\method{print}{maximump}(x, ...)
 \method{print}{minimump}(x, ...)
 }
 \arguments{
   \item{p}{A vector of \eqn{p}-values}
-  \item{r}{Use the \eqn{r}th  minimum \eqn{p} value}
+  \item{r}{Use the \eqn{r}th  smallest \eqn{p} value}
   \item{alpha}{The significance level}
   \item{x}{An object of class \sQuote{\code{wilkinsonp}}
+    or of class \sQuote{\code{maximump}}
     or of class \sQuote{\code{minimump}}}
   \item{...}{Other arguments to be passed through}
 }
@@ -37,9 +43,12 @@ true.
 An error results if possibly as a result of deletions
 fewer than two studies remain.
 
-\code{minimump} provides a wrapper for \code{wilkinsonp}
-for the special case when \eqn{r=1} and has its own
+\code{maximump} and
+\code{minimump} each provide a wrapper for \code{wilkinsonp}
+for the special case when \eqn{r = length(p)}
+or \eqn{r=1} respectively and each has its own
 print method.
+The method of minimum \eqn{p} is also known as Tippett'smethod.
 
 The plot method for class \sQuote{\code{metap}}
 calls \code{\link{schweder}} on the valid
@@ -50,11 +59,12 @@ See last example.
 This may not be what you want.
 }
 \value{An object of class \sQuote{\code{wilkinsonp}}
+and \sQuote{\code{metap}} or of class \sQuote{\code{maximump}}
 and \sQuote{\code{metap}} or of class \sQuote{\code{minimump}}
 and \sQuote{\code{metap}},
 a list with entries
-  \item{p}{The \eqn{p}-value}
-  \item{pr}{The \eqn{r}th  minimum \eqn{p} value}
+  \item{p}{The \eqn{p}-value resulting from the meta--analysis}
+  \item{pr}{The \eqn{r}th smallest \eqn{p} value used}
    \item{r}{The value of \eqn{r}}
   \item{critp}{The critical value at which the \eqn{r}th value
       would have been significant for the chosen \code{alpha}}

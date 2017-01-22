@@ -1,5 +1,7 @@
 \name{sumz}
 \alias{sumz}
+\alias{Stouffer's method}
+\alias{Sum of normals method}
 \alias{print.sumz}
 \title{Combine p-values using the sum of z method}
 \description{Combine \eqn{p}-values using the sum z method}

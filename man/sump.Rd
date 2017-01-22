@@ -1,8 +1,10 @@
 \name{sump}
 \alias{sump}
+\alias{Edgington's method}
 \alias{print.sump}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Combine p-values using the sum of p method}
+\title{Combine p-values using the sum of p method
+also known as Edgington's method}
 \description{Combine \eqn{p}-values using the sum p method}
 \usage{
 sump(p)

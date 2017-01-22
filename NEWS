@@ -1,3 +1,11 @@
+Changes in version 0.8
+    - updated vignette to include method comparisons
+    
+Changes in version 0.7-1
+   - added maximump
+   - updated documentation
+   - this version never uploaded to CRAN
+   
 Changes in version 0.7
    - added vignette
    - minor bug fixes
