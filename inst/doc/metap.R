@@ -1,13 +1,13 @@
 ### R code from vignette source 'metap.Rnw'
 
 ###################################################
-### code chunk number 1: metap.Rnw:158-159
+### code chunk number 1: metap.Rnw:168-169
 ###################################################
 library(metap)
 
 
 ###################################################
-### code chunk number 2: metap.Rnw:174-178
+### code chunk number 2: metap.Rnw:185-189
 ###################################################
 pvals <- c(0.1, 0.1, 0.9, 0.9, 0.9, 0.9)
 istwo <- c(TRUE,  FALSE, TRUE, FALSE, TRUE, FALSE)
@@ -16,34 +16,32 @@ two2one(pvals, two = istwo, invert = toinvert)
 
 
 ###################################################
-### code chunk number 3: metap.Rnw:183-184
+### code chunk number 3: metap.Rnw:195-196
 ###################################################
 data(validity)
 
 
 ###################################################
-### code chunk number 4: metap.Rnw:189-190
+### code chunk number 4: metap.Rnw:201-202
 ###################################################
 print(validity)
 
 
 ###################################################
-### code chunk number 5: metap.Rnw:194-196
+### code chunk number 5: simple
 ###################################################
-par(pin = c(3, 3))
 schweder(validity)
 
 
 ###################################################
-### code chunk number 6: metap.Rnw:237-240
+### code chunk number 6: withlines
 ###################################################
-par(pin = c(3, 3))
 schweder(validity, drawline = c("bh", "ls", "ab"),
    ls.control = list(frac = 0.5), ab.control = list(a = 0, b = 0.01))
 
 
 ###################################################
-### code chunk number 7: metap.Rnw:276-292
+### code chunk number 7: metap.Rnw:283-299
 ###################################################
 genvec <- function(pvals, kvals, fun, name) {
    ps <- length(pvals)
@@ -64,7 +62,7 @@ genvec <- function(pvals, kvals, fun, name) {
 
 
 ###################################################
-### code chunk number 8: metap.Rnw:295-307
+### code chunk number 8: metap.Rnw:302-314
 ###################################################
    kvals <- c(4, 5, 6, 8, 10, 15, 20)
    pvals <- c(0.2, 0.3, 0.3679, 0.4, 0.5, 0.6)
@@ -81,7 +79,7 @@ genvec <- function(pvals, kvals, fun, name) {
 
 
 ###################################################
-### code chunk number 9: metap.Rnw:311-315
+### code chunk number 9: metap.Rnw:318-322
 ###################################################
    lattice::xyplot(g ~ k | method, groups = p, type = "l", data = dat,
       auto.key = list(space = "left", lines = TRUE, title = "p"),
@@ -90,26 +88,26 @@ genvec <- function(pvals, kvals, fun, name) {
 
 
 ###################################################
-### code chunk number 10: metap.Rnw:375-377
+### code chunk number 10: metap.Rnw:383-385
 ###################################################
 pvals <- c(0.001, 0.001, 0.999, 0.999)
 sumlog(pvals)
 
 
 ###################################################
-### code chunk number 11: metap.Rnw:407-408
+### code chunk number 11: metap.Rnw:415-416
 ###################################################
 sumz(pvals)
 
 
 ###################################################
-### code chunk number 12: metap.Rnw:452-453
+### code chunk number 12: metap.Rnw:460-461
 ###################################################
 logitp(pvals)
 
 
 ###################################################
-### code chunk number 13: metap.Rnw:460-463
+### code chunk number 13: metap.Rnw:468-471
 ###################################################
 sumlog(validity)
 sumz(validity)
@@ -117,26 +115,19 @@ logitp(validity)
 
 
 ###################################################
-### code chunk number 14: metap.Rnw:507-509
-###################################################
-minimump(pvals)
-maximump(pvals)
-
-
-###################################################
-### code chunk number 15: metap.Rnw:539-540
+### code chunk number 14: metap.Rnw:548-549
 ###################################################
 sump(pvals)
 
 
 ###################################################
-### code chunk number 16: metap.Rnw:589-590
+### code chunk number 15: metap.Rnw:596-597
 ###################################################
 meanp(pvals)
 
 
 ###################################################
-### code chunk number 17: metap.Rnw:596-600
+### code chunk number 16: metap.Rnw:602-606
 ###################################################
 minimump(validity)
 maximump(validity)
@@ -145,13 +136,13 @@ meanp(validity)
 
 
 ###################################################
-### code chunk number 18: metap.Rnw:633-634
+### code chunk number 17: metap.Rnw:639-640
 ###################################################
 votep(pvals)
 
 
 ###################################################
-### code chunk number 19: metap.Rnw:639-640
+### code chunk number 18: metap.Rnw:645-646
 ###################################################
 votep(validity)
 

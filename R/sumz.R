@@ -11,7 +11,8 @@ function(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)  {
    mf <- na.action(mf)
    p <- as.numeric(mf$p)
    weights <- mf$weights
-   if(is.null(weights)) weights <- rep(1, length(p))
+   noweights <- is.null(weights)
+   if(noweights) weights <- rep(1, length(p))
    if(length(p) != length(weights)) warning("Length of p and weights differ")
    keep <- (p > 0) & (p < 1)
    if(sum(1L * keep) < 2)
@@ -19,7 +20,8 @@ function(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)  {
    if(sum(1L * keep) != length(p)) {
       warning("Some studies omitted")
       omitw <- weights[!keep]
-      if(sum(1L * omitw) > 0) warning("Weights omitted too")
+      if((sum(1L * omitw) > 0) & !noweights)
+         warning("Weights omitted too")
    }
    zp <- (qnorm(p[keep], lower.tail = FALSE) %*% weights[keep]) /
       sqrt(sum(weights[keep]^2))

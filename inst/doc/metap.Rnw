@@ -3,6 +3,7 @@
 %\usepackage{mydef2}
 \usepackage[round]{natbib}
 \usepackage{parskip,url}
+\usepackage{graphicx,subfig}
 % use [numbered] for numbering down to subsection level
 %\lhead{}
 %\input{title}
@@ -12,6 +13,15 @@
 \newcommand{\pkg}[1]{\texttt{#1}}
 \newcommand{\func}[1]{\texttt{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\codefont}{\footnotesize}
+\newcommand{\twograph}[8]{%
+\begin{figure}[htbp]
+\subfloat[#2\label{#3}]{\includegraphics[height=6cm,width=7cm]{#1}}%
+\subfloat[#5\label{#6}]{\includegraphics[height=6cm,width=7cm]{#4}}
+\caption{#7}
+\label{#8}
+\end{figure}
+}
 \begin{document}
 \maketitle
 
@@ -69,12 +79,12 @@ The $p$--values in this document are significance levels.
 \subsection{Notation}
 
 The $k$ studies give rise to $p$--values,
- $p_i, i = 1, \dots, k$.
+$p_i,\;i = 1, \dots, k$.
 These are assumed to be independent
 We shall also need the ordered $p$--values:
 $p_{[1]} \le p_{[2]}, \dots, \le p_{[k]}$
 and weights
-$w_i, i = 1, \dots, k$.
+$w_i,\;i = 1, \dots, k$.
 Logarithms are natural.
 A function for combining $p$--values is denoted $g$.
 
@@ -171,12 +181,14 @@ be converted.
 This is not simply a matter of halving the quoted $p$--value
 as values in the opposite direction need to be reversed.
 A convenience function \func{two2one} is provided for this.
+{\codefont
 <<>>=
 pvals <- c(0.1, 0.1, 0.9, 0.9, 0.9, 0.9)
 istwo <- c(TRUE,  FALSE, TRUE, FALSE, TRUE, FALSE)
 toinvert <- c(FALSE, TRUE, FALSE, FALSE, TRUE, TRUE)
 two2one(pvals, two = istwo, invert = toinvert)
 @
+}
 Note in particular the way in which $0.9$ is
 converted under the different scenarios.
 
@@ -185,20 +197,11 @@ data(validity)
 @
 
 \subsection{Plotting}
-
+{\codefont
 <<>>=
 print(validity)
 @
-
-\begin{figure}[tbp]
-<<fig = TRUE>>=
-par(pin = c(3, 3))
-schweder(validity)
-@
-\caption{Simple example of plot using \func{schweder}}
-\label{simple}
-\end{figure}
-
+}
 It would be a wise precaution to examine the $p$--values
 graphically or otherwise before subjecting them to further analysis.
 A function \func{schweder} is provided for this purpose.
@@ -211,12 +214,17 @@ to
 \citet{benjamini00}.
 We will use an example dataset on the validity of student
 ratings quoted in \citet{becker94}.
-Figure \ref{simple} shows the plot from \func{schweder}.
+Figure \subref{simple} shows the plot from \func{schweder}.
+
+<<fig=TRUE,label=simple,include=FALSE>>=
+schweder(validity)
+@
 
 \func{schweder} also offers the possibility of drawing one of 
 a number of straight line summaries.
 The three possible straight line summaries are
-shown in Figure \ref{withlines} and are:
+shown in Figure \subref{withlines} and are:
+
 \begin{itemize}
 \item
 the lowest slope line of Benjaimin and Hochberg
@@ -233,16 +241,12 @@ intercept and slope
 which is drawn by default as dashed.
 \end{itemize}
 
-\begin{figure}[tbp]
-<<fig = TRUE>>=
-par(pin = c(3, 3))
+<<fig=TRUE,label=withlines,include=FALSE>>=
 schweder(validity, drawline = c("bh", "ls", "ab"),
    ls.control = list(frac = 0.5), ab.control = list(a = 0, b = 0.01))
 @
-\caption{Example of plot with lines added}
-\label{withlines}
-\end{figure}
 
+\twograph{metap-simple}{Simple graph}{simple}{metap-withlines}{With lines}{withlines}{Ouput from schweder}{schweder}
 \subsection{Reporting problems in the primary studies}
 
 Another issue is what to do with studies which have simply reported
@@ -256,6 +260,9 @@ Studies which simply report not significant could be included
 as having $p=1$ (or $p=0.5$
 if it is known that the direction was right)
 although this is very conservative.
+The theory of handling $p$--values which have been truncated like this
+has been developed by \citet{zaykin02} and is available in the
+CRAN package \pkg{TFisher}.
 
 \section{The methods}
 
@@ -271,7 +278,7 @@ $p_i$.
 Perhaps surprisingly there are substantial differences here
 as we shall see when we look at each method.
 We describe how the returned value
-varies with $p_i$ and $k$.
+varies with $p$ and $k$.
 
 <<echo = FALSE>>=
 genvec <- function(pvals, kvals, fun, name) {
@@ -360,9 +367,9 @@ when $p>0.37$, and in between
 increases with $k$ and then
 decreases.
 Some detailed algebra provided in a post
-to stats.stackexchange.com by Christoph Hanck
-suggests that the breakpoint is $e^{-1} = 0.3679$
-so that where the $p_i$ are less than that then for a sufficiently
+to https://stats.stackexchange.com/questions/243003 by Christoph Hanck
+suggests that the breakpoint is $e^{-1} = 0.3679$.
+Where the $p_i$ are less than this then for a sufficiently
 large $k$ the result will be significant and not if above that.
 Over the range of $k$ we are plotting this bound is not
 yet closely approached.
@@ -372,11 +379,12 @@ for this to happen.
 This method does not cancel significant
 values in both direction and returns a significant
 result for our example.
+{\codefont
 <<>>=
 pvals <- c(0.001, 0.001, 0.999, 0.999)
 sumlog(pvals)
 @
-
+}
 It would of course be possible to generalise this to use
 transformation to $\chi^2$ with any other number
 of degrees of freedom rather than 2.
@@ -403,11 +411,11 @@ and increases above.
 
 This method does cancel significant values in both
 directions.
-
+{\codefont
 <<>>=
 sumz(pvals)
 @
-
+}
 A weighted version is available
 \begin{equation}
 \frac{\sum_{i=1}^k w_i z(p_i)}{\sqrt {\sum_{i=1}^k w_i ^ 2}}
@@ -448,21 +456,21 @@ and increases above.
 
 This method does cancel significant values in both
 directions.
-
+{\codefont
 <<>>=
 logitp(pvals)
 @
-
+}
 
 \subsubsection{Examples for \func{sumlog}, \func{sumz}, and \func{logitp}}
 Using the same example dataset which we have already plotted
-
+{\codefont
 <<>>=
 sumlog(validity)
 sumz(validity)
 logitp(validity)
 @
-
+}
 As can be seen these are in quite good agreement.
 
 \subsection{Methods using untransformed $p$--values}
@@ -504,11 +512,12 @@ The minimum $p$ method does not cancel significant
 values in both direction and returns a significant
 result for our example
 but the maximum $p$ does cancel.
-<<>>=
+{\codefont
+<>>=
 minimump(pvals)
 maximump(pvals)
 @
-
+}
 \subsubsection{The method of summation of $p$--values, Edgington's method\label{sump}}
 
 Define
@@ -535,11 +544,11 @@ and increases above.
 
 This method does cancel significant values in both
 directions.
-
+{\codefont
 <<>>=
 sump(pvals)
 @
-
+}
 Some authors use a simpler version,
 for instance \citet{rosenthal78} in the text
 although compare his Table 4.
@@ -570,9 +579,7 @@ z &= (0.5 - \bar{p}) \sqrt{12k}\\
 \bar p &= \frac{\sum_{i=1}^k p_i}{k}
 \end{aligned}
 \end{equation}
-which is a standard normal \citep{edgington72b}
-and
-where .
+which is a standard normal \citep{edgington72b}.
 Although this method is attributed to Edgington
 when the phrase Edgington's method is used
 it refers to the method of summation of $p$--values
@@ -585,21 +592,20 @@ and increases above.
 
 This method does cancel significant values in both
 directions.
-
+{\codefont
 <<>>=
 meanp(pvals)
 @
-
-
-
+}
 \subsubsection{Examples for \func{minimump}, \func{maximump}, \func{sump}, and \func{meanp}}
+{\codefont
 <<>>=
 minimump(validity)
 maximump(validity)
 sump(validity)
 meanp(validity)
 @
-
+}
 Agreement here is not so good especially for the maximump method.
 
 \subsection{Other methods}
@@ -629,17 +635,17 @@ but decreases with $k$.
 
 This method does cancel significant values in both
 directions.
-
+{\codefont
 <<>>=
 votep(pvals)
 @
-
+}
 \subsection{Examples of \func{votep}}
-
+{\codefont
 <<>>=
 votep(validity)
 @
-
+}
 \section{Loughin's recommendations}
 
 In his simulation study \citet{loughin04} carried out extensive comparisons.
@@ -686,7 +692,22 @@ the methods can give very different results.
 If the intention of the synthesis is to examine a directional
 hypothesis one would want a method where these cancelled out.
 Clearly the choice should be made on scientific grounds
-not on the baiss of the outcome.
+not on the basis of the outcome.
+Table \ref{cancel} summarises the possibilities.
+\begin{table}[htbp]
+\begin{tabular}{lr}
+Method & Cancels?\\
+\code{logitp} & Yes \\
+\code{meanp} & No \\
+\code{minimump} & Yes \\
+\code{sumlog} & No \\
+\code{sump} & Yes \\
+\code{sumz} & Yes \\
+\code{votep} & Yes \\
+\end{tabular}
+\caption{Which methods cancel extreme values in opposite directions?}
+\label{cancel}
+\end{table}
 
 
 \subsection{Extractor functions}
