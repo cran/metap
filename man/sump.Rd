@@ -3,8 +3,7 @@
 \alias{Edgington's method}
 \alias{print.sump}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Combine p-values using the sum of p method
-also known as Edgington's method}
+\title{Combine p-values using the sum of p (Edgington's) method}
 \description{Combine \eqn{p}-values using the sum p method}
 \usage{
 sump(p)
@@ -23,7 +22,7 @@ Defined as
 + {k - 2 \choose 2}\frac{(\sum p - 2)^k}{k!}}{%
 ((sum p) ^ k) / k! - (k-1)C1 ((sum p - 1) ^ k) / k! + (k-2)C2 ((sum p - 2) ^ k) / k!}
 where there are \eqn{k} studies and the series continues until the numerator
-becomes negative.
+becomes negative\insertCite{edgington72a}{metap}.
 
 Some authors use a simpler version
 \eqn{\frac{(\sum p)^k}{k!}}{((sum p) ^ k) / k!}
@@ -55,18 +54,8 @@ calls \code{\link{schweder}} on the valid
   \item{validp}{The input vector with illegal values removed}
 }
 \references{
-Becker, B J. Combining significance levels. In
-Cooper, H and Hedges, L V, editors
-\emph{A handbook of research synthesis},
-chapter 15, pages 215--230.
-Russell Sage,
-New York, 1994.
 
-Edgington, E S.
-An additive method for combining probability values from
-independent experiments.
-\emph{Journal of Psychology},
-80:351-363, 1972.
+\insertAllCited{}
 
 }
 \author{Michael Dewey}

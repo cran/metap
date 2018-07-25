@@ -1,13 +1,13 @@
 ### R code from vignette source 'metap.Rnw'
 
 ###################################################
-### code chunk number 1: metap.Rnw:168-169
+### code chunk number 1: metap.Rnw:183-184
 ###################################################
 library(metap)
 
 
 ###################################################
-### code chunk number 2: metap.Rnw:185-189
+### code chunk number 2: metap.Rnw:201-205
 ###################################################
 pvals <- c(0.1, 0.1, 0.9, 0.9, 0.9, 0.9)
 istwo <- c(TRUE,  FALSE, TRUE, FALSE, TRUE, FALSE)
@@ -16,13 +16,13 @@ two2one(pvals, two = istwo, invert = toinvert)
 
 
 ###################################################
-### code chunk number 3: metap.Rnw:195-196
+### code chunk number 3: metap.Rnw:211-212
 ###################################################
 data(validity)
 
 
 ###################################################
-### code chunk number 4: metap.Rnw:201-202
+### code chunk number 4: metap.Rnw:217-218
 ###################################################
 print(validity)
 
@@ -41,7 +41,13 @@ schweder(validity, drawline = c("bh", "ls", "ab"),
 
 
 ###################################################
-### code chunk number 7: metap.Rnw:283-299
+### code chunk number 7: metap.Rnw:313-314
+###################################################
+cancel <- c(0.001, 0.001, 0.999, 0.999)
+
+
+###################################################
+### code chunk number 8: metap.Rnw:318-334
 ###################################################
 genvec <- function(pvals, kvals, fun, name) {
    ps <- length(pvals)
@@ -62,24 +68,20 @@ genvec <- function(pvals, kvals, fun, name) {
 
 
 ###################################################
-### code chunk number 8: metap.Rnw:302-314
+### code chunk number 9: metap.Rnw:361-369
 ###################################################
    kvals <- c(4, 5, 6, 8, 10, 15, 20)
    pvals <- c(0.2, 0.3, 0.3679, 0.4, 0.5, 0.6)
    dat <- rbind(
       genvec(pvals, kvals, logitp, "logitp"),
-      genvec(pvals, kvals, meanp, "meanp"),
-      genvec(pvals, kvals, maximump, "maximump"),
-      genvec(pvals, kvals, minimump, "minimump"),
+      genvec(pvals, kvals, meanz, "meanz"),
       genvec(pvals, kvals, sumlog, "sumlog"),
-      genvec(pvals, kvals, sump, "sump"),
-      genvec(pvals, kvals, sumz, "sumz"),
-      genvec(pvals, kvals, votep, "votep")
+      genvec(pvals, kvals, sumz, "sumz")
    )
 
 
 ###################################################
-### code chunk number 9: metap.Rnw:318-322
+### code chunk number 10: transeqp
 ###################################################
    lattice::xyplot(g ~ k | method, groups = p, type = "l", data = dat,
       auto.key = list(space = "left", lines = TRUE, title = "p"),
@@ -88,62 +90,25 @@ genvec <- function(pvals, kvals, fun, name) {
 
 
 ###################################################
-### code chunk number 10: metap.Rnw:383-385
+### code chunk number 11: metap.Rnw:512-521
 ###################################################
-pvals <- c(0.001, 0.001, 0.999, 0.999)
-sumlog(pvals)
+   kvals <- c(4, 5, 6, 8, 10, 15, 20)
+   pvals <- c(0.2, 0.3, 0.3679, 0.4, 0.5, 0.6)
+   dat <- rbind(
+      genvec(pvals, kvals, meanp, "meanp"),
+      genvec(pvals, kvals, maximump, "maximump"),
+      genvec(pvals, kvals, minimump, "minimump"),
+      genvec(pvals, kvals, sump, "sump"),
+      genvec(pvals, kvals, votep, "votep")
+   )
 
 
 ###################################################
-### code chunk number 11: metap.Rnw:415-416
+### code chunk number 12: untranseqp
 ###################################################
-sumz(pvals)
-
-
-###################################################
-### code chunk number 12: metap.Rnw:460-461
-###################################################
-logitp(pvals)
-
-
-###################################################
-### code chunk number 13: metap.Rnw:468-471
-###################################################
-sumlog(validity)
-sumz(validity)
-logitp(validity)
-
-
-###################################################
-### code chunk number 14: metap.Rnw:548-549
-###################################################
-sump(pvals)
-
-
-###################################################
-### code chunk number 15: metap.Rnw:596-597
-###################################################
-meanp(pvals)
-
-
-###################################################
-### code chunk number 16: metap.Rnw:602-606
-###################################################
-minimump(validity)
-maximump(validity)
-sump(validity)
-meanp(validity)
-
-
-###################################################
-### code chunk number 17: metap.Rnw:639-640
-###################################################
-votep(pvals)
-
-
-###################################################
-### code chunk number 18: metap.Rnw:645-646
-###################################################
-votep(validity)
+   lattice::xyplot(g ~ k | method, groups = p, type = "l", data = dat,
+      auto.key = list(space = "left", lines = TRUE, title = "p"),
+      ylab = "g(p)"
+   )
 
 

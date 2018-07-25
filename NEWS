@@ -1,3 +1,9 @@
+Changes in version 1.0
+   - added new functions: inverse chisq, inverse t, mean z
+   - changed package Rd file to use system macros
+   - changed to using Rdpack for references in Rd files
+   - updated vignette
+   
 Changes in version 0.9
    - added new function allmetap
    - minor bug in sumz fixed

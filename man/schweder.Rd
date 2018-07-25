@@ -1,7 +1,7 @@
 \name{schweder}
 \alias{schweder}
 \title{Schweder and Spjotvoll plot}
-\description{Produces the plot suggested by Schweder and Spjotvol to display
+\description{Produces the plot suggested by Schweder and Spjotvoll to display
 a collection of \eqn{p}-values and also optionally draws the
 lowest slope line suggested by Benjamini and Hochberg
 }
@@ -36,7 +36,7 @@ schweder(p, xlab = "Rank of p", ylab = "p", drawline = NULL,
 Any graphics parameters passed in \code{...} affect this part
 of the plot only.
 Note that the axes are chosen according to the scheme of Banjamini and
-Hochberg, Schweder and Spjotvol used a different system.
+Hochberg, Schweder and Spjotvoll used a different system.
 
 By setting \code{drawline} appropriately up to three
 lines may be drawn.
@@ -76,31 +76,16 @@ A list containing
       user specified line was drawn}
 }
 \references{
-Benjamini, Y and Hochberg, Y.
-On the adaptive control of the false disovery rate in
-multiple testing with independent statistics.
-\emph{Journal of Educational and Behavioral Statistics},
-25: 60--83, 2000.
+\insertRef{becker94}{metap}
 
-   Schweder, T and Spjotvoll, E.
-   Plots of \eqn{P}--values to evaluate many tests simultaneously.
-  \emph{Biometrika}, 69:493--502, 1982.
+\insertRef{benjamini00}{metap}
+
+\insertRef{schweder82}{metap}
 }
 \author{Michael Dewey}
 
-%%\note{
-%%  ~~further notes~~
-%%}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-%%\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-%%}
 \examples{
    data(teachexpect)
    schweder(teachexpect)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ hplot }

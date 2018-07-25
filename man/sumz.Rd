@@ -3,7 +3,7 @@
 \alias{Stouffer's method}
 \alias{Sum of normals method}
 \alias{print.sumz}
-\title{Combine p-values using the sum of z method}
+\title{Combine p-values using the sum of z (Stouffer's) method}
 \description{Combine \eqn{p}-values using the sum z method}
 \usage{
 sumz(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)
@@ -23,13 +23,16 @@ sumz(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)
 \details{
 Defined as \deqn{\frac{\sum (w z(p))}{\sqrt {\sum w ^ 2}}}{sum (w * z(p)) / sqrt(sum (w * w))}
 is a \eqn{z} where \eqn{k} is the number of studies
-and \eqn{w} are the weights.
+and \eqn{w} are the weights \insertCite{stouffer49}{metap}.
 By default the weights are equal.
 In the absence of effect sizes (in which case a method for
-combining effect sizes woud be more appropriate anyway)
-best resuts are believed to be obtained with weights
+combining effect sizes would be more appropriate anyway)
+best results are believed to be obtained with weights
 proportional to the square root of the sample sizes
-(see Zaykin reference).
+\insertCite{zaykin11}{metap}
+
+\insertNoCite{becker94}{metap}
+\insertNoCite{rosenthal78}{metap}
 
 The values of \eqn{p} should be such that \eqn{0<p<1}.
 A warning is issued if this means that studies are omitted
@@ -49,21 +52,7 @@ calls \code{\link{schweder}} on the valid
   \item{weights}{The weight vector corresponding to \code{validp}}
 }
 \references{
-Becker, B J. Combining significance levels. In
-Cooper, H and Hedges, L V, editors
-\emph{A handbook of research synthesis},
-chapter 15, pages 215--230.
-Russell Sage,
-New York, 1994.
-
-Rosenthal, R. Combining the results of independent studies.
-\emph{Psychological Bulletin},
-85:185--193, 1978.
-
-Zaykin, D V. Optimally weighted \eqn{Z}-test is a powerful method
-for combining probabilities in meta-analysis.
-\emph{Journal of Evolutionary Biology}
-24:1836-1841, 2011
+\insertAllCited{}
 }
 \author{Michael Dewey}
 \seealso{

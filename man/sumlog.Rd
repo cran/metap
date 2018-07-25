@@ -3,8 +3,7 @@
 \alias{Fisher's method}
 \alias{chi-square (2) method}
 \alias{print.sumlog}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{Combine p-values by the sum of logs method
+\title{Combine p-values by the sum of logs (Fisher's) method
 }
 \description{Combine \eqn{p}-values by the sum of logs method,
 also known as Fisher's method, and sometimes as the
@@ -13,7 +12,6 @@ chi-square (2) method.}
 sumlog(p)
 \method{print}{sumlog}(x, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{p}{A vector of \eqn{p}-values}
   \item{x}{An object of class \sQuote{\code{sumlog}}}
@@ -23,7 +21,10 @@ sumlog(p)
 The method relies on the fact that
 \deqn{\sum - 2 \log p}{sum -2 log p}
 is a chi-squared with \eqn{2 k}{2 * k} df where \eqn{k} is the number
-of studies.
+of studies \insertCite{fisher25}{metap}.
+\insertNoCite{becker94}{metap}
+\insertNoCite{rosenthal78}{metap}
+\insertNoCite{sutton00}{metap}
 
 The values of \eqn{p} should be such that
 \eqn{0<p\le{}1}{0<p<=1} and a warning is given if that
@@ -50,21 +51,9 @@ a list with entries
 %% ...
 }
 \references{
-Becker, B J. Combining significance levels. In
-Cooper, H and Hedges, L V, editors
-\emph{A handbook of research synthesis},
-chapter 15, pages 215--230.
-Russell Sage,
-New York, 1994.
-
-Rosenthal, R. Combining the results of independent studies.
-\emph{Psychological Bulletin},
-85:185--193, 1978.
-
-Sutton A J, Abrams, K R, Jones D R, Sheldon T A and Song, F.
-\emph{Methods for meta-analysis in medical research}.
-Wiley, Chichester, 2000.
+\insertAllCited{}
 }
+
 \author{Michael Dewey}
 
 \seealso{

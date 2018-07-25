@@ -39,12 +39,7 @@ An object of class \sQuote{\code{logitp}} and
   \item{validp}{The input vector with illegal values removed}
 }
 \references{
-Becker, B J. Combining significance levels. In
-Cooper, H and Hedges, L V, editors
-\emph{A handbook of research synthesis},
-chapter 15, pages 215--230.
-Russell Sage,
-New York, 1994.
+\insertRef{becker94}{metap}
 }
 \author{Michael Dewey}
 \seealso{

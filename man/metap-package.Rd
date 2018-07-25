@@ -2,24 +2,20 @@
 \alias{metap-package}
 \alias{metap}
 \docType{package}
-\title{Meta-analysis of p-values}
-\description{Combine \eqn{p}-values using a variety of methods}
+\title{\packageTitle{metap}}
+\description{\packageDescription{metap}}
 \details{
-\tabular{ll}{
-Package: \tab metap\cr
-Type: \tab Package\cr
-Version: \tab 0.7\cr
-Date: \tab 2016-04-05\cr
-License: \tab GPL-2\cr
-LazyLoad: \tab yes\cr
-}
+%\packageDESCRIPTION{metap}
+\packageIndices{metap}
+
 Provides a number of ways in which significance levels may be combined
-in a meta-analysis.
+in a meta-analysis and includes most ot the methods
+in \insertCite{becker94;textual}{metap}.
 It includes a number of datasets taken from the literature. 
-It also provdes a display and
-an informal graphical test due to Schweder and Spjotvol
+It also provides a display and
+an informal graphical test due to Schweder and Spjotvoll \insertCite{schweder82}{metap}
 and the lowest slope line of Benjamini and
-Hochberg.
+Hochberg \insertCite{benjamini00}{metap}.
 
 There is a vignette.
 Some further documentation and,
@@ -28,28 +24,12 @@ may be seen at
 \url{http://www.dewey.myzen.co.uk/meta/meta.html}.
 
 }
-\author{Michael Dewey <lists@dewey.myzen.co.uk>}
+\author{\packageAuthor{metap}
+
+Maintainer: \packageMaintainer{metap}
+}
 \references{
-Becker, B J. Combining significance levels. In
-Cooper, H and Hedges, L V, editors
-\emph{A handbook of research synthesis},
-chapter 15, pages 215--230.
-Russell Sage,
-New York, 1994.
-
-Benjamini, Y and Hochberg, Y.
-On the adaptive control of the false disovery rate in
-multiple testing with independent statistics.
-\emph{Journal of Educational and Behavioral Statistics},
-25: 60--83, 2000.
-
-Rosenthal, R. Combining the results of independent studies.
-\emph{Psychological Bulletin},
-85:185--193, 1978.
-
-   Schweder, T and Spjotvoll, E.
-   Plots of \eqn{P}--values to evaluate many tests simultaneously.
-  \emph{Biometrika}, 69:493--502, 1982.
+\insertAllCited{}
 }
 \keyword{ package }
 \seealso{

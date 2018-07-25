@@ -26,7 +26,8 @@ minimump(p, alpha = 0.05)
   \item{...}{Other arguments to be passed through}
 }
 \details{
-Wilkinson originally proposed his method in the context of
+Wilkinson \insertCite{wilkinson51}{metap}
+originally proposed his method in the context of
 simultaneous statistical inference: the probability
 of obtaining \eqn{r} or more significant statistics by
 chance in a group of \eqn{k}.
@@ -48,7 +49,10 @@ fewer than two studies remain.
 for the special case when \eqn{r = length(p)}
 or \eqn{r=1} respectively and each has its own
 print method.
-The method of minimum \eqn{p} is also known as Tippett'smethod.
+The method of minimum \eqn{p} is also known as Tippett'smethod
+\insertCite{tippett31}{metap}.
+\insertNoCite{becker94}{metap}\insertNoCite{birnbaum54}{metap}
+
 
 The plot method for class \sQuote{\code{metap}}
 calls \code{\link{schweder}} on the valid
@@ -72,23 +76,7 @@ a list with entries
 %% ...
 }
 \references{
-Becker, B J. Combining significance levels. In
-Cooper, H and Hedges, L V, editors
-\emph{A handbook of research synthesis},
-chapter 15, pages 215--230.
-Russell Sage,
-New York, 1994.
-
-Birnbaum, A.
-Combining independent tests of significance.
-\emph{Journal of the American Statistical Association},
-49:559--574, 1954.
-
-Wilkinson, B.
-A statistical consideration in psychological research.
-\emph{Psychological Bulletin},
-48:156--158, 1951.
-
+\insertAllCited{}
 }
 
 \author{Michael Dewey}

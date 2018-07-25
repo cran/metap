@@ -61,49 +61,24 @@ data(validity)
 }
 \details{
 \describe{
-   \item{\code{beckerp}}{Hypothetical \eqn{p} values from Becker}
+   \item{\code{beckerp}}{Hypothetical \eqn{p} values from \insertCite{becker94;textual}{metap}}
    \item{\code{cholest}}{\eqn{p}-values from studies of cholesterol
-       lowering from Sutton}
-   \item{\code{edgington}}{Hypothetical \eqn{p} values from Edgington}
+       lowering from \insertCite{sutton00;textual}{metap}}
+   \item{\code{edgington}}{Hypothetical \eqn{p} values from \insertCite{edgington72a;textual}{metap}}
    \item{\code{mourning}}{Results from a study of mourning practices of Israeli
-       youth from Benjamini}
+       youth from \insertCite{benjamini00;textual}{metap}}
    \item{\code{naep}}{Results on the National Assessment
-      of Educational Progress from Benjamini}
-   \item{\code{rosenthal}}{Hypothetical example from Rosenthal}
+      of Educational Progress from \insertCite{benjamini00;textual}{metap}}
+   \item{\code{rosenthal}}{Hypothetical example from \insertCite{rosenthal78;textual}{metap}}
    \item{\code{teachexpect}}{\eqn{p}-values from studies of the effect of
-      manipulating teacher expectancy from Becker}
+      manipulating teacher expectancy from \insertCite{becker94;textual}{metap}}
    \item{\code{validity}}{\eqn{p}-values from studies of validity of
-      student ratings from Becker}
+      student ratings from \insertCite{becker94;textual}{metap}}
    }
 }
+
 \references{
-Becker, B J. Combining significance levels. In
-Cooper, H and Hedges, L V, editors
-\emph{A handbook of research synthesis},
-chapter 15, pages 215--230.
-Russell Sage,
-New York, 1994.
-
-Benjamini, Y and Hochberg, Y.
-On the adaptive control of the false disovery rate in
-multiple testing with independent statistics.
-\emph{Journal of Educational and Behavioral Statistics},
-25: 60--83, 2000.
-
-Edgington, E S.
-An additive method for combining probability values from
-independent experiments.
-\emph{Journal of Psychology},
-80:351-363, 1972.
-
-Rosenthal, R. Combining the results of independent studies.
-\emph{Psychological Bulletin},
-85:185--193, 1978.
-
-Sutton A J, Abrams, K R, Jones D R, Sheldon T A and Song, F.
-\emph{Methods for meta-analysis in medical research}.
-Wiley, Chichester, 2000.
-
-
+\insertAllCited{}
 }
+
 \keyword{datasets}

@@ -16,8 +16,8 @@ meanp(p)
 }
 \details{
 Defined as \deqn{z = (0.5 - \bar{p}) \sqrt{12k}}{z = (0.5 - mean(p)) * sqrt(12k)}
-which is a standard normal
-
+which is a standard normal and due to \insertCite{edgington72b;textual}{metap}
+\insertNoCite{becker94}{metap}\insertNoCite{rosenthal78}{metap}
 The values of \eqn{p} should be such that \eqn{0\le{}p\le{}1}{0<=p<=1}.
 A warning is issued if this means that studies are omitted
 and an error results if,
@@ -34,17 +34,7 @@ a list with entries
   \item{validp}{The input vector with illegal values removed}
 }
 \references{
-Becker, B J. Combining significance levels. In
-Cooper, H and Hedges, L V, editors
-\emph{A handbook of research synthesis},
-chapter 15, pages 215--230.
-Russell Sage,
-New York, 1994.
-
-Rosenthal, R. Combining the results of independent studies.
-\emph{Psychological Bulletin},
-85:185--193, 1978.
-
+\insertAllCited{}
 }
 \author{Michael Dewey}
 

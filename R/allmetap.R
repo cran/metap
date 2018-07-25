@@ -5,14 +5,17 @@ mydata <-
    "logitp",
    "maximump",
    "meanp",
+   "meanz",
    "minimump","Tippett"
    "sumlog","Fisher"
    "sump","Edgington"
    "sumz","Stouffer"
 '
-   details <- read.csv(textConnection(mydata), stringsAsFactors = FALSE)
-   row.names(details) <- c("logitp", "maximump", "meanp", "minimump",
-      "sumlog", "sump", "sumz")
+   con <- textConnection(mydata)
+   details <- read.csv(con, stringsAsFactors = FALSE)
+   row.names(details) <- c("logitp", "maximump", "meanp", "meanz",
+      "minimump", "sumlog", "sump", "sumz")
+   close(con)
 # if all specified reset funcnames
 funcnames <- method
 if("all" %in% method) funcnames <- row.names(details)
