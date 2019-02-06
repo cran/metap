@@ -12,23 +12,20 @@ logitp(p)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{p}{A vector of \eqn{p} values}
+  \item{p}{\sigvec}
   \item{x}{An object of class \sQuote{\code{logitp}}}
   \item{...}{Other arguments to be passed through}
 }
 \details{
-Defined as \deqn{t = - \frac{\sum \log\frac{p}{1 - p}}{C}}{%
+Defined as \deqn{t = - \frac{\sum_{i=1}^k \log\frac{p_i}{1 - p_i}}{C}}{%
 t = - sum log(p / (1 - p)) / C}
 where
 \deqn{C = \sqrt\frac{k \pi^2 (5 k + 2)}{3(5 k + 4)}}{C = sqrt((k pi^2 (5 k + 2)) / (3(5 k + 4)))}
 and \eqn{k} is the number of studies.
 
-The values of \eqn{p} should be such that \eqn{0<p<1}.
-A warning is issued if this means that studies are omitted
-and an error results if as a result fewer than two studies remain.
+\ltlt{two}
 
-The plot method for class \sQuote{\code{metap}} calls \code{\link{schweder}} on the valid
-\eqn{p}-values
+\plotmethod
 }
 \value{
 An object of class \sQuote{\code{logitp}} and
@@ -43,7 +40,7 @@ An object of class \sQuote{\code{logitp}} and
 }
 \author{Michael Dewey}
 \seealso{
-See also \code{\link{schweder}}
+See also \code{\link{plotp}}
 }
 \examples{
 data(teachexpect)

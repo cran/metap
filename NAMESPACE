@@ -6,6 +6,7 @@ export(meanp)
 export(meanz)
 export(maximump)
 export(minimump)
+export(plotp)
 export(schweder)
 export(sumlog)
 export(sump)
@@ -29,7 +30,8 @@ S3method(print,wilkinsonp)
 S3method(plot,metap)
 importFrom("graphics", "abline", "plot")
 importFrom("stats", "binom.test", "coef", "lm", "na.fail",
-   "pbeta", "pchisq", "pnorm", "pt", "qbeta", "qchisq", "qnorm",
+   "pbeta", "pchisq", "pnorm", "ppoints", "pt", "qbeta", "qchisq", "qnorm",
+   "qqline", "qqplot", "qunif",
    "qt", "sd")
 importFrom("utils", "read.csv")
 importFrom("lattice", "xyplot")

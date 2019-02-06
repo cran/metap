@@ -11,8 +11,8 @@ votep(p, alpha = c(0.5, 0.5))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{p}{A vector of \eqn{p}-values}
-  \item{alpha}{A vector of length 2 defining the significance values}
+  \item{p}{\sigvec}
+  \item{alpha}{A vector of length 2 defining the significance value limits}
   \item{x}{An object of class \sQuote{\code{votep}}}
   \item{...}{Other arguments to be passed through}
 }
@@ -26,16 +26,9 @@ for a neutral zone.
 If either value of alpha is greater than unity
 it is assumed to be a percentage.
 
-The values of \eqn{p} should be such that
-\eqn{0\le{}p\le{}1}{0<=p<=1} and a warning is issued if this
-is not true
-An
-error occurs if possibly as a result of deletion
-fewer than two studies remain.
+\ltlt{two}
 
-The plot method for class \sQuote{\code{metap}}
-calls \code{\link{schweder}} on the valid
-\eqn{p}-values
+\plotmethod
 }
 \value{An object of class \sQuote{\code{votep}}
 and \sQuote{\code{votep}}, a list with entries
@@ -53,7 +46,7 @@ and \sQuote{\code{votep}}, a list with entries
 \author{Michael Dewey}
 
 \seealso{
-See also \code{\link{schweder}}
+See also \code{\link{plotp}}
 }
 \examples{
 data(beckerp)

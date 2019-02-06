@@ -67,7 +67,3 @@ schweder <- function(p, xlab = "Rank of p", ylab = "p",
    }
    invisible(res)
 }
-plot.metap <- function(x, ...) {
-   schweder(x$validp, ...)
-   invisible(x)
-}

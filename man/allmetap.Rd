@@ -1,7 +1,7 @@
 \name{allmetap}
 \alias{allmetap}
 \alias{print.allmetap}
-\title{Carry out all or some of the methods}
+\title{Carry out all or some of the methods in the package}
 \description{Enables all or a selected number of the package
 methods to be executed on the same dataset}
 \usage{

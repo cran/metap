@@ -10,7 +10,7 @@ meanp(p)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{p}{A vector of \eqn{p}-values}
+  \item{p}{\sigvec}
   \item{x}{An object of class \sQuote{\code{meanp}}}
   \item{...}{Other arguments to be passed through}
 }
@@ -18,13 +18,10 @@ meanp(p)
 Defined as \deqn{z = (0.5 - \bar{p}) \sqrt{12k}}{z = (0.5 - mean(p)) * sqrt(12k)}
 which is a standard normal and due to \insertCite{edgington72b;textual}{metap}
 \insertNoCite{becker94}{metap}\insertNoCite{rosenthal78}{metap}
-The values of \eqn{p} should be such that \eqn{0\le{}p\le{}1}{0<=p<=1}.
-A warning is issued if this means that studies are omitted
-and an error results if,
-possibly after deletion of illegal values, fewer than four studies remain.
 
-The plot method for class \sQuote{\code{metap}} calls \code{\link{schweder}} on the valid
-\eqn{p}-values
+\lele{four}
+
+\plotmethod
 }
 \value{
 An object of class \sQuote{\code{meanp}} and \sQuote{\code{metap}},
@@ -39,7 +36,7 @@ a list with entries
 \author{Michael Dewey}
 
 \seealso{
-See also \code{\link{schweder}}
+See also \code{\link{plotp}}
 }
 \examples{
 data(rosenthal)

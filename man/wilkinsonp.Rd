@@ -17,7 +17,7 @@ minimump(p, alpha = 0.05)
 \method{print}{minimump}(x, ...)
 }
 \arguments{
-  \item{p}{A vector of \eqn{p}-values}
+  \item{p}{\sigvec}
   \item{r}{Use the \eqn{r}th  smallest \eqn{p} value}
   \item{alpha}{The significance level}
   \item{x}{An object of class \sQuote{\code{wilkinsonp}}
@@ -38,29 +38,20 @@ If \code{alpha} is greater than unity
 it is assumed to be a percentage. Either values greater than 0.5 (assumed to
 be confidence coefficient) or less than 0.5 are accepted.
 
-The values of \eqn{p} should be such that
-\eqn{0\le{}p\le{}1}{0<=p<=1} and a warning is issued if that is not
-true.
-An error results if possibly as a result of deletions
-fewer than two studies remain.
+\lele{two}
 
 \code{maximump} and
 \code{minimump} each provide a wrapper for \code{wilkinsonp}
-for the special case when \eqn{r = length(p)}
+for the special case when \eqn{r = \mathrm{length}(p)}{r = length(p)}
 or \eqn{r=1} respectively and each has its own
 print method.
-The method of minimum \eqn{p} is also known as Tippett'smethod
+The method of minimum \eqn{p} is also known as Tippett's method
 \insertCite{tippett31}{metap}.
 \insertNoCite{becker94}{metap}\insertNoCite{birnbaum54}{metap}
 
 
-The plot method for class \sQuote{\code{metap}}
-calls \code{\link{schweder}} on the valid
-\eqn{p}-values.
-Inspection of the \eqn{p}-values is recommended as extreme values
-in opposite directions do not cancel out.
-See last example.
-This may not be what you want.
+\plotmethod
+\nocancel
 }
 \value{An object of class \sQuote{\code{wilkinsonp}}
 and \sQuote{\code{metap}} or of class \sQuote{\code{maximump}}
@@ -81,7 +72,7 @@ a list with entries
 
 \author{Michael Dewey}
 \seealso{
-See also \code{\link{schweder}}
+See also \code{\link{plotp}}
 }
 \examples{
 data(beckerp)
@@ -93,6 +84,4 @@ data(validity)
 minimump(validity) # minp = 0.00001, critp = 1.99 * 10^{-4}
 minimump(c(0.0001, 0.0001, 0.9999, 0.9999)) # is significant
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ htest }

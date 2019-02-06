@@ -13,7 +13,7 @@ invchisq(p, k, data = NULL, subset = NULL, na.action = na.fail)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{p}{A vector of \eqn{p}-values}
+  \item{p}{\sigvec}
   \item{k}{A vector of degrees of freedom to use, see details}
   \item{data}{Optional data frame containing variables}
   \item{subset}{Optional vector of logicals to specify a subset of the \eqn{p}-values}
@@ -24,28 +24,17 @@ invchisq(p, k, data = NULL, subset = NULL, na.action = na.fail)
 }
 \details{
 Defined as
-\deqn{\sum_{i=1}^n \chi^2_{k_i}(p_i) > \chi^2_{\sum{k_i}}(\alpha)}{\sum_{i=1}^n \chi^2_{k_i}(p_i) > \chi^2_{\sum{k_i}}(\alpha)}
+\deqn{\sum_{i=1}^n \chi^2_{k_i}(p_i) > \chi^2_{\sum{k_i}}(\alpha)}{\sum \chi^2_k(p) > \chi^2_\sum{k}(\alpha)}
 
 If \code{k} is a single value it is used for all the \code{p}
 of which there are \code{n}.
-If any value of \eqn{k<1} then the corresponding \code{p}
+If any value of \eqn{k_i<1} then the corresponding \eqn{p_i}
 is not included.
 
-The values of \eqn{p} should be such that
-\eqn{0<p\le{}1}{0<p<=1} and a warning is given if that
-is not true.
-An error is given
-if possibly as a result of deletions
-fewer than two studies remain.
+\ltle{two}
 
-The plot method for class \sQuote{\code{metap}}
-calls \code{\link{schweder}} on the valid
-\eqn{p}-values.
-Inspection of the distribution of \eqn{p}-values is highly recommended
-as extreme values in opposite directions do not always
-cancel out especially for small values of \code{k}.
-See last example.
-This may not be what you want.
+\plotmethod
+\nocancel
 }
 \value{
 An object of class \sQuote{\code{invchisq}} and \sQuote{\code{metap}},
@@ -64,7 +53,7 @@ a list with entries
 Michael Dewey
 }
 \seealso{
-See Also \code{\link{sumlog}}
+See also \code{\link{sumlog}} and \code{\link{plotp}}
 }
 \examples{
 data(beckerp)

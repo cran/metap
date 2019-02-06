@@ -1,3 +1,7 @@
+Changes in version 1.1
+   - new plotting function plotp
+   - split vignette into two
+   
 Changes in version 1.0
    - added new functions: inverse chisq, inverse t, mean z
    - changed package Rd file to use system macros

@@ -36,13 +36,13 @@ data(validity)
 }
     \item{\code{naep}}{A data frame with 34 observations on the following 2 variables.
   \describe{
-    \item{\code{state}}{a factor with levels \code{AL} \code{AR} \code{AZ} \code{CA} \code{CO} \code{CT} \code{DE} \code{FL} \code{GA} \code{HI} \code{IA} \code{ID} \code{IN} \code{KY} \code{LA} \code{MD} \code{MI} \code{MN} \code{NC} \code{ND} \code{NE} \code{NH} \code{NJ} \code{NM} \code{NY} \code{OH} \code{OK} \code{PA} \code{RI} \code{TX} \code{VA} \code{WI} \code{WV} \code{WY}}
+    \item{\code{state}}{a factor with levels \code{AL}, \code{AR}, \code{AZ}, \code{CA}, \code{CO}, \code{CT}, \code{DE}, \code{FL}, \code{GA}, \code{HI}, \code{IA}, \code{ID}, \code{IN}, \code{KY}, \code{LA}, \code{MD}, \code{MI}, \code{MN}, \code{NC}, \code{ND}, \code{NE}, \code{NH}, \code{NJ}, \code{NM}, \code{NY}, \code{OH}, \code{OK}, \code{PA}, \code{RI}, \code{TX}, \code{VA}, \code{WI}, \code{WV}, \code{WY},}
     \item{\code{p}}{a numeric vector}
   }}
   \item{\code{mourning}}{ A data frame with 9 observations on the following 3 variables.
   \describe{
-    \item{\code{stance}}{a factor with levels \code{No stand} \code{Opponent} \code{Supporter}}
-    \item{\code{grade}}{a factor with levels \code{G11-12} \code{G7-8} \code{G9-10}}
+    \item{\code{stance}}{a factor with levels \code{No stand}, \code{Opponent}, \code{Supporter}}
+    \item{\code{grade}}{a factor with levels \code{G11-12}, \code{G7-8}, \code{G9-10}}
     \item{\code{p}}{a numeric vector}
   }}
    \item{\code{rosenthal}}{

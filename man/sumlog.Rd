@@ -13,40 +13,30 @@ sumlog(p)
 \method{print}{sumlog}(x, ...)
 }
 \arguments{
-  \item{p}{A vector of \eqn{p}-values}
+  \item{p}{\sigvec}
   \item{x}{An object of class \sQuote{\code{sumlog}}}
   \item{...}{Other arguments to be passed through}
 }
 \details{
 The method relies on the fact that
-\deqn{\sum - 2 \log p}{sum -2 log p}
+\deqn{\sum_{i=1}^k - 2 \log p_i}{sum (-2 log p)}
 is a chi-squared with \eqn{2 k}{2 * k} df where \eqn{k} is the number
 of studies \insertCite{fisher25}{metap}.
 \insertNoCite{becker94}{metap}
 \insertNoCite{rosenthal78}{metap}
 \insertNoCite{sutton00}{metap}
 
-The values of \eqn{p} should be such that
-\eqn{0<p\le{}1}{0<p<=1} and a warning is given if that
-is not true.
-An error is given
-if possibly as a result of deletions
-fewer than two studies remain.
+\ltle{two}
 
-The plot method for class \sQuote{\code{metap}}
-calls \code{\link{schweder}} on the valid
-\eqn{p}-values.
-Inspection of the distribution of \eqn{p}-values is highly recommended
-as extreme values in opposite directions do not cancel out.
-See last example.
-This may not be what you want.
+\plotmethod
+\nocancel
 }
 \value{
 An object of class \sQuote{\code{sumlog}} and \sQuote{\code{metap}},
 a list with entries
   \item{chisq}{Value of chi-squared statistic}
   \item{df}{Associated degrees of freedom}
-  \item{p}{Associated p-value}
+  \item{p}{Associated \eqn{p}-value}
   \item{validp}{The input vector with the illegal values removed}
 %% ...
 }
@@ -57,7 +47,7 @@ a list with entries
 \author{Michael Dewey}
 
 \seealso{
-See also \code{\link{schweder}}
+See also \code{\link{plotp}}
 }
 \examples{
 data(teachexpect)

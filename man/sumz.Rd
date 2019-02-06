@@ -11,7 +11,7 @@ sumz(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{p}{A vector of \eqn{p}-values}
+  \item{p}{\sigvec}
   \item{weights}{A vector of weights}
   \item{data}{Optional data frame containing variables}
   \item{subset}{Optional vector of logicals to specify a subset of the \eqn{p}-values}
@@ -21,7 +21,7 @@ sumz(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)
   \item{...}{Other arguments to be passed through}
 }
 \details{
-Defined as \deqn{\frac{\sum (w z(p))}{\sqrt {\sum w ^ 2}}}{sum (w * z(p)) / sqrt(sum (w * w))}
+Defined as \deqn{\frac{\sum_{i=1}^k  w_i z(p_i)}{\sqrt {\sum_{i=1}^k  w_i ^ 2}}}{sum (w * z(p)) / sqrt(sum (w * w))}
 is a \eqn{z} where \eqn{k} is the number of studies
 and \eqn{w} are the weights \insertCite{stouffer49}{metap}.
 By default the weights are equal.
@@ -34,15 +34,10 @@ proportional to the square root of the sample sizes
 \insertNoCite{becker94}{metap}
 \insertNoCite{rosenthal78}{metap}
 
-The values of \eqn{p} should be such that \eqn{0<p<1}.
-A warning is issued if this means that studies are omitted
-and an error results if as a result fewer than two studies remain.
-If the omitted \eqn{p} values had supplied weights
+\ltlt{two} If the omitted \eqn{p} values had supplied weights
 a further warning is issued.
 
-The plot method for class \sQuote{\code{metap}}
-calls \code{\link{schweder}} on the valid
-\eqn{p}-values
+\plotmethod
 }
 \value{An object of class \sQuote{\code{sumz}} and
 \sQuote{\code{metap}}, a list with entries
@@ -56,7 +51,7 @@ calls \code{\link{schweder}} on the valid
 }
 \author{Michael Dewey}
 \seealso{
-See also \code{\link{schweder}}
+See also \code{\link{plotp}}
 }
 \examples{
 data(teachexpect)
@@ -69,6 +64,4 @@ sumz(p, df, rosenthal) # 3.01, p = 0.0013
 data(validity)
 sumz(validity) # z = 8.191, p = 1.25 * 10^{-16}
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ htest }
