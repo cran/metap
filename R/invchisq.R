@@ -16,18 +16,23 @@ function(p, k, data = NULL, subset = NULL, na.action = na.fail) {
    } else {
    }
    keep <- (p > 0) & (p <= 1) & (k > 0)
-   pvals <- p[keep]
-   k <- k[keep]
-   if(sum(1L * keep) < 2)
-      stop("Must have at least two valid p values")
-   if(length(pvals) != length(p)) {
-      warning("Some studies omitted")
+   invalid <- sum(1L * keep) < 2
+   if(invalid) {
+      warning("Must have at least two valid p values")
+      res <- list(chisq = NA_real_, df = NA_integer_,
+         p = NA_real_, validp = p[keep])
+   } else {
+      pvals <- p[keep]
+      k <- k[keep]
+      if(length(pvals) != length(p)) {
+         warning("Some studies omitted")
+      }
+      chisq <- qchisq(pvals, k, lower.tail = FALSE)
+      chi <- sum(chisq)
+      df <- sum(k)
+      res <- list(chisq = chi, df = df,
+         p = pchisq(chi, df, lower.tail = FALSE), validp = pvals)
    }
-   chisq <- qchisq(pvals, k, lower.tail = FALSE)
-   chi <- sum(chisq)
-   df <- sum(k)
-   res <- list(chisq = chi, df = df,
-      p = pchisq(chi, df, lower.tail = FALSE), validp = pvals)
    class(res) <- c("invchisq", "metap")
    res
 }

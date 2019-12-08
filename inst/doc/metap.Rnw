@@ -102,6 +102,7 @@ Function name & \multicolumn{2}{c}{Description(s)} \\[1ex]
 \func{sumlog} & Fisher's method & Chi square (2 df)\\
 \func{sump} & Edgington's method & Uniform\\
 \func{sumz} & Stouffer's method & Normal\\
+\func{truncated} & Truncated Fisher & rank--truncated\\
 \func{votep} \\
 \func{wilkinsonp} & Wilkinson's method \\
 \end{tabular}
@@ -238,8 +239,10 @@ as having $p=1$ (or $p=0.5$
 if it is known that the direction was right)
 although this is very conservative.
 The theory of handling $p$--values which have been truncated like this
-has been developed by \citet{zaykin02} and is available in the
-CRAN package \pkg{TFisher}.
+has been developed by \citet{zaykin02} and
+\func{truncated} provides a convenience wrapper for
+two methods available in other CRAN
+packages.
 
 \section{Using the methods}
 

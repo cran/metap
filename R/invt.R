@@ -15,18 +15,22 @@ function(p, k, data = NULL, subset = NULL, na.action = na.fail) {
       k <- rep(k, length(p))
    } else {
    }
-   keep <- (p > 0) & (p <= 1) & (k > 0)
-   pvals <- p[keep]
-   k <- k[keep]
-   if(sum(1L * keep) < 2)
-      stop("Must have at least two valid p values")
-   if(length(pvals) != length(p)) {
-      warning("Some studies omitted")
+   keep <- (p > 0) & (p <= 1) & (k > 2)
+   invalid <- sum(1L * keep) < 2
+   if(invalid) {
+      warning("Must have at least two valid p values")
+      res <- list(z = NA_real_, p = NA_real_, validp = p[keep])
+   } else {
+      pvals <- p[keep]
+      k <- k[keep]
+      if(length(pvals) != length(p)) {
+         warning("Some studies omitted")
+      }
+      z <- sum(qt(pvals, k, lower.tail = FALSE)) /
+         sqrt(sum(k / (k - 2)))
+      res <- list(z = z,
+         p = pnorm(z, lower.tail = FALSE), validp = pvals)
    }
-   z <- sum(qt(pvals, k, lower.tail = FALSE)) /
-      sqrt(sum(k / (k - 2)))
-   res <- list(z = z,
-      p = pnorm(z, lower.tail = FALSE), validp = pvals)
    class(res) <- c("invt", "metap")
    res
 }

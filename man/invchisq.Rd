@@ -28,7 +28,7 @@ Defined as
 
 If \code{k} is a single value it is used for all the \code{p}
 of which there are \code{n}.
-If any value of \eqn{k_i<1} then the corresponding \eqn{p_i}
+If any value of \eqn{k_i\le0} then the corresponding \eqn{p_i}
 is not included.
 
 \ltle{two}

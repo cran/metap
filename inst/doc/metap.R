@@ -1,13 +1,13 @@
 ### R code from vignette source 'metap.Rnw'
 
 ###################################################
-### code chunk number 1: metap.Rnw:118-119
+### code chunk number 1: metap.Rnw:119-120
 ###################################################
 library(metap)
 
 
 ###################################################
-### code chunk number 2: metap.Rnw:136-140
+### code chunk number 2: metap.Rnw:137-141
 ###################################################
 pvals <- c(0.1, 0.1, 0.9, 0.9, 0.9, 0.9)
 istwo <- c(TRUE,  FALSE, TRUE, FALSE, TRUE, FALSE)
@@ -16,13 +16,13 @@ two2one(pvals, two = istwo, invert = toinvert)
 
 
 ###################################################
-### code chunk number 3: metap.Rnw:146-147
+### code chunk number 3: metap.Rnw:147-148
 ###################################################
 data(validity)
 
 
 ###################################################
-### code chunk number 4: metap.Rnw:152-153
+### code chunk number 4: metap.Rnw:153-154
 ###################################################
 print(validity)
 
@@ -47,7 +47,7 @@ schweder(validity, drawline = c("bh", "ls", "ab"),
 
 
 ###################################################
-### code chunk number 8: metap.Rnw:250-251
+### code chunk number 8: metap.Rnw:253-254
 ###################################################
 sumlog(validity)
 

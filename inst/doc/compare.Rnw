@@ -81,6 +81,7 @@ Function name & \multicolumn{2}{c}{Description(s)} \\[1ex]
 \func{sumlog} & Fisher's method & Chi square (2 df)\\
 \func{sump} & Edgington's method & Uniform\\
 \func{sumz} & Stouffer's method & Normal\\
+\func{truncated} & Truncated Fisher & rank--truncated\\
 \func{votep} \\
 \func{wilkinsonp} & Wilkinson's method \\
 \end{tabular}
@@ -498,7 +499,8 @@ statistical significance in the two different directions.
 
 This method returns a value for our $p_i=p$
 example which
-is 1 above 0.5 and otherwise invariant with $p$
+is 1 for $p$
+values above 0.5 and otherwise invariant with $p$
 but decreases with $k$.
 This method does cancel significant values in both
 directions.
@@ -510,6 +512,31 @@ Function name & validity  & cancel \\[1ex]
 \end{tabular}
 \caption{Examples for vote counting}
 \label{votepexamples}
+\end{table}
+
+\subsubsection{Methods not using all $p$--values}
+
+If there is a hypothesis that the signal will be
+concentrated in only a few $p$--values then alternative methods
+are available in \func{truncated}.
+This is a wrapper to two packages available on
+CRAN: \pkg{TFisher} which provides the
+truncated Fisher method \citep{zaykin07,zhang18}
+and \pkg{mutoss} which provides
+the rank--truncated Fisher
+method \citep{dudbridge03}.
+Note that Table \ref{truncatedexamples} only shows
+results for the validity data--set as, since the
+methods explicitly only consider results in one direction
+the cancellation issue does not arise.
+
+\begin{table}[htbp]
+\begin{tabular}{lll}
+Function name & truncated at $p$ = 0.5  & truncated at rank = 5 \\[1ex]
+\func{truncated} & \Sexpr{truncated(validity, ptrunc = 0.5)$p} & \Sexpr{truncated(validity, rtrunc = 5)$p} \\
+\end{tabular}
+\caption{Examples for truncated using the validity data--set}
+\label{truncatedexamples}
 \end{table}
 
 \section{Loughin's recommendations}
@@ -527,7 +554,8 @@ and equal emphasis (\func{logitp} and \func{sumz}).
 Under arrangement of evidence he considers
 where this is concentrated.
 His recommendations are summarised in Table
-\ref{loughin}.
+\ref{loughin} but note that he did not consider
+all of the methods provided in this package.
 
 \begin{table}[htbp]
 \begin{tabular}{ll}

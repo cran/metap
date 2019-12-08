@@ -1,8 +1,8 @@
 Package: metap
 Type: Package
 Title: Meta-Analysis of Significance Values
-Version: 1.1
-Date: 2019-02-05
+Version: 1.2
+Date: 2019-11-15
 Author: Michael Dewey
 Maintainer: Michael Dewey <lists@dewey.myzen.co.uk>
 Description: The canonical way to perform meta-analysis involves using effect sizes.
@@ -11,11 +11,11 @@ Description: The canonical way to perform meta-analysis involves using effect si
    Lancaster, Stouffer, Tippett, and Wilkinson; a number of data-sets to replicate published results;
    and a routine for graphical display.
 URL: http://www.dewey.myzen.co.uk/meta/meta.html
-Imports: lattice,Rdpack
+Imports: lattice,Rdpack,TFisher,mutoss
 RdMacros: Rdpack
 License: GPL-2
 LazyLoad: yes
 NeedsCompilation: no
-Packaged: 2019-02-05 09:59:47 UTC; Michael_2
+Packaged: 2019-11-15 11:49:16 UTC; MichaelUser
 Repository: CRAN
-Date/Publication: 2019-02-06 14:20:03 UTC
+Date/Publication: 2019-12-08 14:20:02 UTC
