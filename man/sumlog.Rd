@@ -5,9 +5,9 @@
 \alias{print.sumlog}
 \title{Combine p-values by the sum of logs (Fisher's) method
 }
-\description{Combine \eqn{p}-values by the sum of logs method,
+\description{Combine \mjseqn{p}-values by the sum of logs method,
 also known as Fisher's method, and sometimes as the
-chi-square (2) method.}
+chi-square (2) method\loadmathjax}
 \usage{
 sumlog(p)
 \method{print}{sumlog}(x, ...)
@@ -19,8 +19,8 @@ sumlog(p)
 }
 \details{
 The method relies on the fact that
-\deqn{\sum_{i=1}^k - 2 \log p_i}{sum (-2 log p)}
-is a chi-squared with \eqn{2 k}{2 * k} df where \eqn{k} is the number
+\mjdeqn{\sum_{i=1}^k - 2 \log p_i}{sum (-2 log p)}
+is a chi-squared with \mjeqn{2 k}{2 * k} df where \mjseqn{k} is the number
 of studies \insertCite{fisher25}{metap}.
 \insertNoCite{becker94}{metap}
 \insertNoCite{rosenthal78}{metap}
@@ -36,7 +36,7 @@ An object of class \sQuote{\code{sumlog}} and \sQuote{\code{metap}},
 a list with entries
   \item{chisq}{Value of chi-squared statistic}
   \item{df}{Associated degrees of freedom}
-  \item{p}{Associated \eqn{p}-value}
+  \item{p}{Associated \mjseqn{p}-value}
   \item{validp}{The input vector with the illegal values removed}
 %% ...
 }

@@ -3,13 +3,13 @@
 \alias{print.allmetap}
 \title{Carry out all or some of the methods in the package}
 \description{Enables all or a selected number of the package
-methods to be executed on the same dataset}
+methods to be executed on the same dataset\loadmathjax}
 \usage{
 allmetap(p, method = NULL)
 \method{print}{allmetap}(x, digits = 5, ...)
 }
 \arguments{
-  \item{p}{A vector of \eqn{p}-values}
+  \item{p}{A vector of \mjseqn{p}-values}
   \item{method}{A vector of character containing names of methods or \sQuote{\code{all}}}
   \item{x}{An object of class \sQuote{\code{allmetap}}}
   \item{digits}{How many digits to print?}

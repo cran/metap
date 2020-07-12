@@ -7,7 +7,7 @@
 \alias{print.maximump}
 \alias{print.minimump}
 \title{Combine p-values using Wilkinson's method}
-\description{Combine \eqn{p}-values using Wilkinson's method}
+\description{Combine \mjseqn{p}-values using Wilkinson's method\loadmathjax}
 \usage{
 wilkinsonp(p, r = 1, alpha = 0.05)
 maximump(p, alpha = 0.05)
@@ -18,7 +18,7 @@ minimump(p, alpha = 0.05)
 }
 \arguments{
   \item{p}{\sigvec}
-  \item{r}{Use the \eqn{r}th  smallest \eqn{p} value}
+  \item{r}{Use the \mjseqn{r}th  smallest \mjseqn{p} value}
   \item{alpha}{The significance level}
   \item{x}{An object of class \sQuote{\code{wilkinsonp}}
     or of class \sQuote{\code{maximump}}
@@ -29,8 +29,8 @@ minimump(p, alpha = 0.05)
 Wilkinson \insertCite{wilkinson51}{metap}
 originally proposed his method in the context of
 simultaneous statistical inference: the probability
-of obtaining \eqn{r} or more significant statistics by
-chance in a group of \eqn{k}.
+of obtaining \mjseqn{r} or more significant statistics by
+chance in a group of \mjseqn{k}.
 The values are obtained from the Beta distribution, see
 \code{\link{pbeta}}.
 
@@ -42,10 +42,10 @@ be confidence coefficient) or less than 0.5 are accepted.
 
 \code{maximump} and
 \code{minimump} each provide a wrapper for \code{wilkinsonp}
-for the special case when \eqn{r = \mathrm{length}(p)}{r = length(p)}
-or \eqn{r=1} respectively and each has its own
+for the special case when \mjeqn{r = \mathrm{length}(p)}{r = length(p)}
+or \mjseqn{r=1} respectively and each has its own
 print method.
-The method of minimum \eqn{p} is also known as Tippett's method
+The method of minimum \mjseqn{p} is also known as Tippett's method
 \insertCite{tippett31}{metap}.
 \insertNoCite{becker94}{metap}\insertNoCite{birnbaum54}{metap}
 
@@ -58,10 +58,10 @@ and \sQuote{\code{metap}} or of class \sQuote{\code{maximump}}
 and \sQuote{\code{metap}} or of class \sQuote{\code{minimump}}
 and \sQuote{\code{metap}},
 a list with entries
-  \item{p}{The \eqn{p}-value resulting from the meta--analysis}
-  \item{pr}{The \eqn{r}th smallest \eqn{p} value used}
-   \item{r}{The value of \eqn{r}}
-  \item{critp}{The critical value at which the \eqn{r}th value
+  \item{p}{The \mjseqn{p}-value resulting from the meta--analysis}
+  \item{pr}{The \mjseqn{r}th smallest \mjseqn{p} value used}
+   \item{r}{The value of \mjseqn{r}}
+  \item{critp}{The critical value at which the \mjseqn{r}th value
       would have been significant for the chosen \code{alpha}}
   \item{validp}{The input vector with illegal values removed}
 %% ...

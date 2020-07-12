@@ -3,7 +3,7 @@
 \alias{Edgington's method}
 \alias{print.sump}
 \title{Combine p-values using the sum of p (Edgington's) method}
-\description{Combine \eqn{p}-values using the sum p method}
+\description{Combine \mjseqn{p}-values using the sum p method\loadmathjax}
 \usage{
 sump(p)
 \method{print}{sump}(x, ...)
@@ -16,17 +16,18 @@ sump(p)
 }
 \details{
 Defined as
-\deqn{\frac{(\sum_{i=1}^k p_i)^k}{k!}
-- {k - 1 \choose 1}\frac{(\sum_{i=1}^k  p_i - 1)^k}{k!}
-+ {k - 2 \choose 2}\frac{(\sum_{i=1}^k  p_i - 2)^k}{k!} ...}{%
+\mjdeqn{\frac{(\sum_{i=1}^k p_i)^k}{k!}
+- {k \choose 1}\frac{(\sum_{i=1}^k p_i - 1)^k}{k!}
++ {k \choose 2}\frac{(\sum_{i=1}^k  p_i - 2)^k}{k!} ...}{%
 ((sum p) ^ k) / k! - (k-1)C(1) ((sum p - 1) ^ k) / k! + (k-2)C(2) ((sum p - 2) ^ k) / k! ...}
-where there are \eqn{k} studies and the series continues until the numerator
+where there are \mjseqn{k} studies and the series continues
+until the numerator
 becomes negative \insertCite{edgington72a}{metap}.
 
 Some authors use a simpler version
-\deqn{\frac{(\sum_{i=1}^k  p_i)^k}{k!}}{((sum p) ^ k) / k!}
+\mjdeqn{\frac{(\sum_{i=1}^k  p_i)^k}{k!}}{((sum p) ^ k) / k!}
 but this can be very conservative when
-\eqn{\sum_{i=1}^k  p_i > 1}{sum p > 1}.
+\mjeqn{\sum_{i=1}^k  p_i > 1}{sum p > 1}.
 There seems no particular need to use this method but
 it is returned as the value of \code{conservativep}
 for use in checking published values.
@@ -40,7 +41,7 @@ the result.
 }
 \value{An object of class \sQuote{\code{sump}} and
 \sQuote{\code{metap}}, a list with entries
-  \item{p}{The transformed sum of the \eqn{p}-values}
+  \item{p}{The transformed sum of the \mjseqn{p}-values}
   \item{conservativep}{See details}
   \item{validp}{The input vector with illegal values removed}
 }

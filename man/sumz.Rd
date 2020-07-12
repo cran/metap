@@ -4,7 +4,7 @@
 \alias{Sum of normals method}
 \alias{print.sumz}
 \title{Combine p-values using the sum of z (Stouffer's) method}
-\description{Combine \eqn{p}-values using the sum z method}
+\description{Combine \mjseqn{p}-values using the sum z method\loadmathjax}
 \usage{
 sumz(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)
 \method{print}{sumz}(x, ...)
@@ -14,16 +14,17 @@ sumz(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)
   \item{p}{\sigvec}
   \item{weights}{A vector of weights}
   \item{data}{Optional data frame containing variables}
-  \item{subset}{Optional vector of logicals to specify a subset of the \eqn{p}-values}
+  \item{subset}{Optional vector of logicals to specify
+     a subset of the \mjseqn{p}-values}
   \item{na.action}{A function indicating what should happen when data
       contains NAs}
   \item{x}{An object of class \sQuote{\code{sumz}}}
   \item{...}{Other arguments to be passed through}
 }
 \details{
-Defined as \deqn{\frac{\sum_{i=1}^k  w_i z(p_i)}{\sqrt {\sum_{i=1}^k  w_i ^ 2}}}{sum (w * z(p)) / sqrt(sum (w * w))}
-is a \eqn{z} where \eqn{k} is the number of studies
-and \eqn{w} are the weights \insertCite{stouffer49}{metap}.
+Defined as \mjdeqn{\frac{\sum_{i=1}^k  w_i z(p_i)}{\sqrt {\sum_{i=1}^k  w_i ^ 2}}}{sum (w * z(p)) / sqrt(sum (w * w))}
+is a \mjseqn{z} where \mjseqn{k} is the number of studies
+and \mjseqn{w} are the weights \insertCite{stouffer49}{metap}.
 By default the weights are equal.
 In the absence of effect sizes (in which case a method for
 combining effect sizes would be more appropriate anyway)
@@ -34,15 +35,15 @@ proportional to the square root of the sample sizes
 \insertNoCite{becker94}{metap}
 \insertNoCite{rosenthal78}{metap}
 
-\ltlt{two} If the omitted \eqn{p} values had supplied weights
+\ltlt{two} If the omitted \mjseqn{p} values had supplied weights
 a further warning is issued.
 
 \plotmethod
 }
 \value{An object of class \sQuote{\code{sumz}} and
 \sQuote{\code{metap}}, a list with entries
-  \item{z}{Transformed sum of \eqn{z} values}
-  \item{p}{Associated \eqn{p}-value}
+  \item{z}{Transformed sum of \mjseqn{z} values}
+  \item{p}{Associated \mjseqn{p}-value}
   \item{validp}{The input vector with illegal values removed}
   \item{weights}{The weight vector corresponding to \code{validp}}
 }

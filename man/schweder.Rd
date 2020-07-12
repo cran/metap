@@ -2,8 +2,8 @@
 \alias{schweder}
 \title{Schweder and Spjotvoll plot}
 \description{Produces the plot suggested by Schweder and Spjotvoll to display
-a collection of \eqn{p}-values and also optionally draws the
-lowest slope line suggested by Benjamini and Hochberg
+a collection of \mjseqn{p}-values and also optionally draws the
+lowest slope line suggested by Benjamini and Hochberg\loadmathjax
 }
 \usage{
 schweder(p, xlab = "Rank of p", ylab = "p", drawline = NULL,
@@ -15,9 +15,9 @@ schweder(p, xlab = "Rank of p", ylab = "p", drawline = NULL,
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{p}{A vector of \eqn{p}-values}
-  \item{xlab}{Label for plot \eqn{x}-axis}
-  \item{ylab}{Label for plot \eqn{y}-axis}
+  \item{p}{A vector of \mjseqn{p}-values}
+  \item{xlab}{Label for plot \mjseqn{x}-axis}
+  \item{ylab}{Label for plot \mjseqn{y}-axis}
   \item{drawline}{Which line, if any, to draw. See Details}
   \item{bh.lwd}{Width of the lowest slope line}
   \item{bh.lty}{Line type of the lowest slope line}
@@ -32,7 +32,7 @@ schweder(p, xlab = "Rank of p", ylab = "p", drawline = NULL,
   \item{ab.col}{Colour of the specified line}
   \item{\dots}{Further parameters to be passed through to plot}
 }
-\details{After removing invalid \eqn{p}-values plots them.
+\details{After removing invalid \mjseqn{p}-values plots them.
 Any graphics parameters passed in \code{...} affect this part
 of the plot only.
 Note that the axes are chosen according to the scheme of Banjamini and
@@ -48,7 +48,7 @@ line may be set: width, line type, and colour.
 
 If \code{drawline} includes the string \code{"ls"}
 a least squares line is drawn passing through the point
-\eqn{k+1, 1}.
+\mjseqn{k+1, 1}.
 The parameter \code{frac} specified what fraction of the
 values be used for this and may need experimentation
 to obtain a suitable line.
@@ -64,7 +64,7 @@ line may be set: width, line type, and colour.
 }
 \value{
 A list containing
-  \item{p}{The values of \eqn{p} plotted}
+  \item{p}{The values of \mjseqn{p} plotted}
   \item{bh.params}{A list containing at least items \code{a} and \code{b}
       the intercept and slope of the line drawn. This is only included if the
       lowest slope line was drawn}

@@ -466,8 +466,8 @@ Function name & Definition & Critical value \\[1ex]
 \func{maximump} & $p_{[k]}$ & $\alpha^k$ \\
 \func{wilkinsonp} & $p_{[r]}$ & $\sum_{s=r}^k {k \choose s}\alpha^s (1 - \alpha)^{k-s}$\\[1ex]
 \func{sump} & $\frac{(S)^k}{k!}%
-- {k - 1 \choose 1}\frac{(S - 1)^k}{k!}%
-+ {k - 2 \choose 2}\frac{(S - 2)^k}{k!} - \dots$ & $\alpha$ \\
+- {k \choose 1}\frac{(S - 1)^k}{k!}%
++ {k \choose 2}\frac{(S - 2)^k}{k!} - \dots$ & $\alpha$ \\
  & where $S = \sum_{i=1}^k p_i$ \\
 \end{tabular}
 \caption{Definitions of methods not using transformation of the $p$ values, %

@@ -1,9 +1,16 @@
 votep <-
-function(p, alpha = c(0.5, 0.5)) {
+function(p, alpha = 0.5) {
    alpha <- ifelse(alpha > 1, alpha / 100, alpha) # if percent
    stopifnot(alpha > 0, alpha < 1)
-   stopifnot(alpha[1] <= alpha[2])
    keep <- (p >= 0) & (p <= 1)
+   alp <- vector("numeric", 2)
+   if(alpha <= 0.5) {
+      alp[1] <- alpha
+      alp[2] <- 1 - alpha
+   } else {
+      alp[2] <- alpha
+      alp[1] <- 1 - alpha
+   }
    invalid <- sum(1L * keep) < 2
    if(invalid) {
       warning("Must have at least two valid p values")
@@ -12,8 +19,8 @@ function(p, alpha = c(0.5, 0.5)) {
    } else {
       pi <- p[keep]
       k <- length(pi)
-      pos <- sum(1L * (pi < alpha[1]))
-      neg <- sum(1L * (pi > alpha[2]))
+      pos <- sum(1L * (pi < alp[1]))
+      neg <- sum(1L * (pi > alp[2]))
       if(k != length(p)) {
          warning("Some studies omitted")
       }

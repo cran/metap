@@ -5,7 +5,6 @@
 \title{\packageTitle{metap}}
 \description{\packageDescription{metap}}
 \details{
-%\packageDESCRIPTION{metap}
 \packageIndices{metap}
 
 Provides a number of ways in which significance levels may be combined
@@ -13,21 +12,21 @@ in a meta-analysis and includes most ot the methods
 in \insertCite{becker94;textual}{metap}.
 It includes a number of datasets taken from the literature. 
 It also provides a display and
-an informal graphical test due to Schweder and Spjotvoll \insertCite{schweder82}{metap}
+an informal graphical test due to Schweder
+and Spjotvoll \insertCite{schweder82}{metap}
 and the lowest slope line of Benjamini and
 Hochberg \insertCite{benjamini00}{metap}.
 
-There is a vignette.
 Some further documentation and,
 possibly, a development version
 may be seen at
-\url{http://www.dewey.myzen.co.uk/meta/meta.html}.
+\url{http://www.dewey.myzen.co.uk/meta/meta.html}
 
 }
-\author{\packageAuthor{metap}
+%\author{\packageAuthor{metap}}
 
-Maintainer: \packageMaintainer{metap}
-}
+%\packageMaintainer{metap}
+
 \references{
 \insertAllCited{}
 }

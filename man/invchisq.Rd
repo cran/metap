@@ -3,9 +3,9 @@
 \alias{Lancaster's method}
 \alias{print.invchisq}
 \title{Combine p values using inverse chi squared method}
-\description{Combine \eqn{p}-values by the
+\description{Combine \mjseqn{p}-values by the
 inverse chi-squared method,
-also known as Lancaster's method,
+also known as Lancaster's method\loadmathjax
 }
 \usage{
 invchisq(p, k, data = NULL, subset = NULL, na.action = na.fail)
@@ -16,7 +16,7 @@ invchisq(p, k, data = NULL, subset = NULL, na.action = na.fail)
   \item{p}{\sigvec}
   \item{k}{A vector of degrees of freedom to use, see details}
   \item{data}{Optional data frame containing variables}
-  \item{subset}{Optional vector of logicals to specify a subset of the \eqn{p}-values}
+  \item{subset}{Optional vector of logicals to specify a subset of the \mjseqn{p}-values}
   \item{na.action}{A function indicating what should happen when data
       contains NAs}
   \item{x}{An object of class \sQuote{\code{invchisq}}}
@@ -24,11 +24,11 @@ invchisq(p, k, data = NULL, subset = NULL, na.action = na.fail)
 }
 \details{
 Defined as
-\deqn{\sum_{i=1}^n \chi^2_{k_i}(p_i) > \chi^2_{\sum{k_i}}(\alpha)}{\sum \chi^2_k(p) > \chi^2_\sum{k}(\alpha)}
+\mjdeqn{\sum_{i=1}^n \chi^2_{k_i}(p_i) > \chi^2_{\sum{k_i}}(\alpha)}{\sum \chi^2_k(p) > \chi^2_\sum{k}(\alpha)}
 
 If \code{k} is a single value it is used for all the \code{p}
 of which there are \code{n}.
-If any value of \eqn{k_i\le0} then the corresponding \eqn{p_i}
+If any value of \mjseqn{k_i\le0} then the corresponding \mjseqn{p_i}
 is not included.
 
 \ltle{two}

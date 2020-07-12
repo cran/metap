@@ -13,7 +13,7 @@
 The package contains the following datasets: \code{beckerp},
    \code{cholest}, \code{edgington}, \code{mourning}, \code{naep},
    \code{rosenthal}, \code{teachexpect}, and \code{validity}.
-}
+\loadmathjax}
 \usage{data(beckerp)
 data(cholest)
 data(edgington)
@@ -48,9 +48,9 @@ data(validity)
    \item{\code{rosenthal}}{
   A data frame with 5 observations on the following 3 variables.
   \describe{
-    \item{\code{t}}{A numeric vector of values of \eqn{t}}
+    \item{\code{t}}{A numeric vector of values of \mjseqn{t}}
     \item{\code{df}}{a numeric vector of degrees of freedom}
-    \item{\code{p}}{a numeric vector of one sided \eqn{p} values}
+    \item{\code{p}}{a numeric vector of one sided \mjseqn{p} values}
   }
   }
   \item{\code{teachexpect}}{A vector of length 19
@@ -61,18 +61,18 @@ data(validity)
 }
 \details{
 \describe{
-   \item{\code{beckerp}}{Hypothetical \eqn{p} values from \insertCite{becker94;textual}{metap}}
-   \item{\code{cholest}}{\eqn{p}-values from studies of cholesterol
+   \item{\code{beckerp}}{Hypothetical \mjseqn{p} values from \insertCite{becker94;textual}{metap}}
+   \item{\code{cholest}}{\mjseqn{p}-values from studies of cholesterol
        lowering from \insertCite{sutton00;textual}{metap}}
-   \item{\code{edgington}}{Hypothetical \eqn{p} values from \insertCite{edgington72a;textual}{metap}}
+   \item{\code{edgington}}{Hypothetical \mjseqn{p} values from \insertCite{edgington72a;textual}{metap}}
    \item{\code{mourning}}{Results from a study of mourning practices of Israeli
        youth from \insertCite{benjamini00;textual}{metap}}
    \item{\code{naep}}{Results on the National Assessment
       of Educational Progress from \insertCite{benjamini00;textual}{metap}}
    \item{\code{rosenthal}}{Hypothetical example from \insertCite{rosenthal78;textual}{metap}}
-   \item{\code{teachexpect}}{\eqn{p}-values from studies of the effect of
+   \item{\code{teachexpect}}{\mjseqn{p}-values from studies of the effect of
       manipulating teacher expectancy from \insertCite{becker94;textual}{metap}}
-   \item{\code{validity}}{\eqn{p}-values from studies of validity of
+   \item{\code{validity}}{\mjseqn{p}-values from studies of validity of
       student ratings from \insertCite{becker94;textual}{metap}}
    }
 }

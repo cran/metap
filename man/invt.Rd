@@ -2,7 +2,7 @@
 \alias{invt}
 \alias{print.invt}
 \title{Combine p values using inverse t method}
-\description{Combine p values using the inverse t method}
+\description{Combine p values using the inverse t method\loadmathjax}
 \usage{
 invt(p, k, data = NULL, subset = NULL, na.action = na.fail)
 \method{print}{invt}(x, ...)
@@ -11,7 +11,7 @@ invt(p, k, data = NULL, subset = NULL, na.action = na.fail)
   \item{p}{\sigvec}
   \item{k}{A vector of degrees of freedom to use, see details}
   \item{data}{Optional data frame containing variables}
-  \item{subset}{Optional vector of logicals to specify a subset of the \eqn{p}-values}
+  \item{subset}{Optional vector of logicals to specify a subset of the \mjseqn{p}-values}
   \item{na.action}{A function indicating what should happen when data
       contains NAs}
   \item{x}{An object of class \sQuote{\code{invt}}}
@@ -19,7 +19,7 @@ invt(p, k, data = NULL, subset = NULL, na.action = na.fail)
 }
 \details{
 Defined as 
-\deqn{\frac{\sum_{i=1}^n t_{k_i}(p_i)}%
+\mjdeqn{\frac{\sum_{i=1}^n t_{k_i}(p_i)}%
 {\sqrt{\sum_{i=1}^n \frac{k_i}{k_i - 2}}}%
 > z(\alpha)%
 }{\sum t (p) /%
@@ -28,7 +28,7 @@ Defined as
 
 If \code{k} is a single value it is used for all the \code{p}
 of which there are \code{n}.
-If any value of \eqn{k_i\le2} then the corresponding \eqn{p_i}
+If any value of \mjseqn{k_i\le2} then the corresponding \mjseqn{p_i}
 is not included.
 
 \ltle{two}
