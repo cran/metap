@@ -27,7 +27,8 @@ Invisibly returns a list conisting of
 \code{\link{qqplot}} and \code{\link{qqline}}
 }
 \examples{
-data(cholest)
+data(dat.metap)
+cholest <- dat.metap$cholest
 plotp(cholest)
 }
 \keyword{hplot}

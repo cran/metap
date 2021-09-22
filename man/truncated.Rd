@@ -69,7 +69,8 @@ Michael Dewey
 \code{\link{ranktruncated}}, \code{\link{stat.tpm}}, and \code{\link{p.tpm}}
 }
 \examples{
-data(validity)
+data(dat.metap)
+validity <- dat.metap$validity
 truncated(validity, ptrunc = 0.5)
 truncated(validity, rtrunc = 5)
 }

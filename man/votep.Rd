@@ -49,7 +49,8 @@ and \sQuote{\code{votep}}, a list with entries
 See also \code{\link{plotp}}
 }
 \examples{
-data(beckerp)
+data(dat.metap)
+beckerp <- dat.metap$beckerp
 votep(beckerp)
 }
 \keyword{ htest }

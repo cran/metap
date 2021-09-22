@@ -8,7 +8,7 @@ inverse chi-squared method,
 also known as Lancaster's method\loadmathjax
 }
 \usage{
-invchisq(p, k, data = NULL, subset = NULL, na.action = na.fail)
+invchisq(p, k, data = NULL, subset = NULL, na.action = na.fail, log.p = FALSE)
 \method{print}{invchisq}(x, ...)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -19,6 +19,7 @@ invchisq(p, k, data = NULL, subset = NULL, na.action = na.fail)
   \item{subset}{Optional vector of logicals to specify a subset of the \mjseqn{p}-values}
   \item{na.action}{A function indicating what should happen when data
       contains NAs}
+  \item{log.p}{\logp}
   \item{x}{An object of class \sQuote{\code{invchisq}}}
   \item{...}{Other arguments to be passed through}
 }
@@ -56,9 +57,11 @@ Michael Dewey
 See also \code{\link{sumlog}} and \code{\link{plotp}}
 }
 \examples{
-data(beckerp)
+data(dat.metap)
+beckerp <- dat.metap$beckerp
 invchisq(beckerp, 2) # same as sumlog
 invchisq(c(0.999, 0.999, 0.001, 0.001), 4)
+all.equal(exp(invchisq(beckerp, 2, log.p = TRUE)$p), invchisq(beckerp, 2)$p)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

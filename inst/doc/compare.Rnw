@@ -182,7 +182,8 @@ cancel <- c(0.001, 0.001, 0.999, 0.999)
 
 <<echo = FALSE>>=
 library(metap)
-data(validity)
+data(dat.metap)
+validity <- dat.metap$validity
 genvec <- function(pvals, kvals, fun, name) {
    ps <- length(pvals)
    ks <- length(kvals)
@@ -434,13 +435,21 @@ and increases above.
 
 \subsubsection{Examples for methods using transformations of the $p$ values}
 
+<<echo=FALSE>>=
+log10p <- function(x) {
+   res <- round(-log(x, base = 10), 2)
+   res
+}
+@
 \begin{table}[htbp]
 \begin{tabular}{lll}
-Function name & validity  & cancel \\[1ex]
-\func{logitp} & \Sexpr{logitp(validity)$p} & \Sexpr{logitp(cancel)$p} \\
-\func{meanz} & \Sexpr{meanz(validity)$p} & \Sexpr{meanz(cancel)$p} \\
-\func{sumlog} & \Sexpr{sumlog(validity)$p} & \Sexpr{sumlog(cancel)$p} \\
-\func{sumz} & \Sexpr{sumz(validity)$p} & \Sexpr{sumz(cancel)$p}\\
+Function name & \multicolumn{1}{c}{validity}  & \multicolumn{1}{c}{cancel} \\
+ & \multicolumn{1}{c}{value expressed} \\
+ & \multicolumn{1}{c}{as $-\log_{10}p$}  \\[1ex]
+\func{logitp} & \Sexpr{log10p(logitp(validity)$p)} & \Sexpr{logitp(cancel)$p} \\
+\func{meanz} & \Sexpr{log10p(meanz(validity)$p)} & \Sexpr{meanz(cancel)$p} \\
+\func{sumlog} & \Sexpr{log10p(sumlog(validity)$p)} & \Sexpr{round(sumlog(cancel)$p, 5)} \\
+\func{sumz} & \Sexpr{log10p(sumz(validity)$p)} & \Sexpr{sumz(cancel)$p}\\
 \end{tabular}
 \caption{Examples of methods using transformation of the $p$ values}
 \label{transexamples}
@@ -449,7 +458,9 @@ Function name & validity  & cancel \\[1ex]
 Using the same example dataset which we have already plotted and our cancellation
 dataset we have the values in Table \ref{transexamples}.
 As can be seen all the methods cancel except for \func{sumlog}.
-The agreement for the validity dataset is close.
+The agreement for the validity dataset is close except
+for \func{meanz} whoch gives a value several orders of magnitude
+greater than the other three.
 Lancaster's method and inverse $t$ are not shown as they are both
 infinite families of possible methods
 and in any event are similar to Fisher's method
@@ -582,12 +593,15 @@ Agreement here is not so good especially for the maximum p method.
 Wilkinson's method not shown as it depends on the value of $r$.
 
 \begin{table}[htbp]
-\begin{tabular}{lll}
-Function name & validity  & cancel \\[1ex]
-\func{minimump} & \Sexpr{minimump(validity)$p} & \Sexpr{minimump(cancel)$p} \\
-\func{maximump} & \Sexpr{maximump(validity)$p} & \Sexpr{maximump(cancel)$p} \\
-\func{meanp} & \Sexpr{meanp(validity)$p} & \Sexpr{meanp(cancel)$p}\\
-\func{sump} & \Sexpr{sump(validity)$p} & \Sexpr{sump(cancel)$p} \\
+\begin{tabular}{lrl}
+Function name & \multicolumn{1}{c}{validity}  & \multicolumn{1}{c}{cancel} \\
+ & \multicolumn{1}{c}{value expressed} \\
+ & \multicolumn{1}{c}{as $-\log_{10}p$}  \\[1ex]
+ \\[1ex]
+\func{minimump} & \Sexpr{log10p(minimump(validity)$p)} & \Sexpr{round(minimump(cancel)$p, 5)} \\
+\func{maximump} & \Sexpr{log10p(maximump(validity)$p)} & \Sexpr{round(maximump(cancel)$p, 5)} \\
+\func{meanp} & \Sexpr{log10p(meanp(validity)$p)} & \Sexpr{meanp(cancel)$p}\\
+\func{sump} & \Sexpr{log10p(sump(validity)$p)} & \Sexpr{sump(cancel)$p} \\
 \end{tabular}
 \caption{Examples for methods using the untransformed $p$ values}
 \label{untransexamples}
@@ -624,7 +638,8 @@ directions.
 \begin{table}[htbp]
 \begin{tabular}{lll}
 Function name & validity  & cancel \\[1ex]
-\func{votep} & \Sexpr{votep(validity)$p} & \Sexpr{votep(cancel)$p} \\
+\func{votep} & \Sexpr{round(votep(validity)$p, 6)} &
+ \Sexpr{round(votep(cancel)$p, 5)} \\
 \end{tabular}
 \caption{Examples for vote counting}
 \label{votepexamples}
@@ -649,9 +664,11 @@ the cancellation issue does not arise.
 \begin{table}[htbp]
 \begin{tabular}{lll}
 Function name & truncated at $p$ = 0.5  & truncated at rank = 5 \\[1ex]
-\func{truncated} & \Sexpr{truncated(validity, ptrunc = 0.5)$p} & \Sexpr{truncated(validity, rtrunc = 5)$p} \\
+\func{truncated} & \Sexpr{log10p(truncated(validity, ptrunc = 0.5)$p)}
+ & \Sexpr{log10p(truncated(validity, rtrunc = 5)$p)} \\
 \end{tabular}
-\caption{Examples for truncated using the validity data--set}
+\caption{Examples for truncated using the validity data--set
+ expressed as $-\log_{10}p$}
 \label{truncatedexamples}
 \end{table}
 

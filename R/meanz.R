@@ -1,5 +1,5 @@
 meanz <-
-function(p)  {
+function(p, log.p = FALSE)  {
    keep <- (p > 0) & (p < 1)
    invalid <- sum(1L * keep) < 2
    if(invalid) {
@@ -12,8 +12,8 @@ function(p)  {
       }
       zvals <- (qnorm(p[keep], lower.tail = FALSE))
       zp <- mean(zvals) / (sd(zvals) / sqrt(length(p[keep])))
-      res <- list(z = zp, p = pnorm(zp, lower.tail = FALSE),
-         validp = p[keep])
+      res <- list(z = zp, p = pnorm(zp, lower.tail = FALSE,
+         log.p = log.p), validp = p[keep])
    }
    class(res) <- c("meanz", "metap")
    res

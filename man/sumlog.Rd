@@ -9,11 +9,12 @@
 also known as Fisher's method, and sometimes as the
 chi-square (2) method\loadmathjax}
 \usage{
-sumlog(p)
+sumlog(p, log.p = FALSE)
 \method{print}{sumlog}(x, ...)
 }
 \arguments{
   \item{p}{\sigvec}
+  \item{log.p}{\logp}
   \item{x}{An object of class \sQuote{\code{sumlog}}}
   \item{...}{Other arguments to be passed through}
 }
@@ -50,17 +51,19 @@ a list with entries
 See also \code{\link{plotp}}
 }
 \examples{
-data(teachexpect)
+data(dat.metap)
+teachexpect <- dat.metap$teachexpect
 sumlog(teachexpect) # chisq = 69.473, df = 38, p = 0.0014, from Becker
-data(beckerp)
+beckerp <- dat.metap$beckerp
 sumlog(beckerp) # chisq = 18.533, df = 10, sig
-data(rosenthal)
+rosenthal <- dat.metap$rosenthal
 sumlog(rosenthal$p) # chisq = 22.97, df = 10, p = 0.006 one sided
-data(cholest)
+cholest <- dat.metap$cholest
 sumlog(cholest) # chisq = 58.62, df = 68, p = 0.78
-data(validity)
+validity <- dat.metap$validity
 sumlog(validity) # chisq = 159.82, df = 40, p = 2.91 * 10^{-16}
 sumlog(c(0.0001, 0.0001, 0.9999, 0.9999)) # is significant
+all.equal(exp(sumlog(validity, log.p = TRUE)$p), sumlog(validity)$p)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

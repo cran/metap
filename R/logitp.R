@@ -1,5 +1,5 @@
 logitp <-
-function(p)  {
+function(p, log.p = FALSE)  {
    keep <- (p > 0) & (p < 1)
    invalid <- sum(1L * keep) < 2
    if(invalid) {
@@ -15,7 +15,8 @@ function(p)  {
       }
       t <- mult * psum
       df <- (5 * k + 4)
-      res <- list(t = t, df = df, p = pt(t, df, lower.tail = FALSE),
+      res <- list(t = t, df = df, 
+         p = pt(t, df, lower.tail = FALSE, log.p = log.p),
          validp = p[keep])
    }
    class(res) <- c("logitp", "metap")

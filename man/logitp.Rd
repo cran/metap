@@ -7,12 +7,13 @@
 Combine \mjseqn{p} values using logit method\loadmathjax
 }
 \usage{
-logitp(p)
+logitp(p, log.p = FALSE)
 \method{print}{logitp}(x, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{p}{\sigvec}
+  \item{log.p}{\logp}
   \item{x}{An object of class \sQuote{\code{logitp}}}
   \item{...}{Other arguments to be passed through}
 }
@@ -43,13 +44,13 @@ An object of class \sQuote{\code{logitp}} and
 See also \code{\link{plotp}}
 }
 \examples{
-data(teachexpect)
+data(dat.metap)
+teachexpect <- dat.metap$teachexpect
 logitp(teachexpect) # t = 2.763, df = 99, p = 0.0034, from Becker
-data(beckerp)
+beckerp <- dat.metap$beckerp
 logitp(beckerp) # t = 1.62, df = 29, NS, from Becker
-data(validity)
+validity <- dat.metap$validity
 logitp(validity) # t = 9.521, df = 104, p = 3.89 * 10^{-16}
+all.equal(exp(logitp(validity, log.p = TRUE)$p), logitp(validity)$p)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ htest }

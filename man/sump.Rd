@@ -55,7 +55,8 @@ the result.
 See also \code{\link{plotp}}
 }
 \examples{
-data(edgington)
+data(dat.metap)
+edgington <- dat.metap$edgington
 sump(edgington) # p = 0.097
 }
 \keyword{ htest }

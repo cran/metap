@@ -1,5 +1,6 @@
 sumz <-
-function(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)  {
+function(p, weights = NULL, data = NULL, subset = NULL,
+   na.action = na.fail, log.p = FALSE)  {
    if(is.null(data)) data <- sys.frame(sys.parent())
    mf <- match.call()
    mf$data <- NULL
@@ -29,7 +30,8 @@ function(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail)  {
       }
       zp <- (qnorm(p[keep], lower.tail = FALSE) %*% weights[keep]) /
          sqrt(sum(weights[keep]^2))
-      res <- list(z = zp, p = pnorm(zp, lower.tail = FALSE),
+      res <- list(z = zp, p = pnorm(zp, lower.tail = FALSE,
+            log.p = log.p),
          validp = p[keep], weights = weights)
    }
    class(res) <- c("sumz", "metap")

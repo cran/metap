@@ -85,7 +85,8 @@ A list containing
 \author{Michael Dewey}
 
 \examples{
-   data(teachexpect)
+   data(dat.metap)
+   teachexpect <- dat.metap$teachexpect
    schweder(teachexpect)
 }
 \keyword{ hplot }

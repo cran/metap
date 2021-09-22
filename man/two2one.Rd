@@ -29,7 +29,8 @@ So for example a value of 0.05 will be converted to 0.025 unless
 \author{Michael Dewey}
 
 \examples{
-data(rosenthal)
+data(dat.metap)
+rosenthal <- dat.metap$rosenthal
 twop <- with(rosenthal, (pt(t, df)))
 two2one(twop, two = rep(FALSE, 5), invert = rep(TRUE, 5)) # restore to one-sided
 }

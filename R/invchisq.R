@@ -1,5 +1,6 @@
 invchisq <-
-function(p, k, data = NULL, subset = NULL, na.action = na.fail) {
+function(p, k, data = NULL, subset = NULL, na.action = na.fail,
+   log.p = FALSE) {
    if(is.null(data)) data <- sys.frame(sys.parent())
    mf <- match.call()
    mf$data <- NULL
@@ -31,7 +32,8 @@ function(p, k, data = NULL, subset = NULL, na.action = na.fail) {
       chi <- sum(chisq)
       df <- sum(k)
       res <- list(chisq = chi, df = df,
-         p = pchisq(chi, df, lower.tail = FALSE), validp = pvals)
+         p = pchisq(chi, df, lower.tail = FALSE, log.p = log.p),
+            validp = pvals)
    }
    class(res) <- c("invchisq", "metap")
    res

@@ -40,9 +40,8 @@ a list with entries
 See also \code{\link{plotp}}
 }
 \examples{
-data(rosenthal)
+data(dat.metap)
+rosenthal <- dat.metap$rosenthal
 meanp(rosenthal$p) # 2.17, p = 0.015 one tailed
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ htest }

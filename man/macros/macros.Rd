@@ -4,3 +4,4 @@
 \newcommand{\ltle}{The values of \mjseqn{p_i} should be such that \mjseqn{0 < p_i\le 1} and a warning is given if that is not true. A warning is given if, possibly as a result of removing illegal values, fewer than #1 values remain and the return values are set to NA.}
 \newcommand{\ltlt}{The values of \mjseqn{p_i} should be such that \mjseqn{0 < p_i < 1} and a warning is given if that is not true. A warning is given if, possibly as a result of removing illegal values, fewer than #1 values remain and the return values are set to NA.}
 \newcommand{\lele}{The values of \mjseqn{p_i} should be such that \mjseqn{0\le p_i\le 1} and a warning is given if that is not true. A warning is given if, possibly as a result of removing illegal values, fewer than #1 values remain and the return values are set to NA.}
+\newcommand{\logp}{Logical, if TRUE result is returned as log(p)}

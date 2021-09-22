@@ -7,10 +7,11 @@ cancel <- c(0.001, 0.001, 0.999, 0.999)
 
 
 ###################################################
-### code chunk number 2: compare.Rnw:183-201
+### code chunk number 2: compare.Rnw:183-202
 ###################################################
 library(metap)
-data(validity)
+data(dat.metap)
+validity <- dat.metap$validity
 genvec <- function(pvals, kvals, fun, name) {
    ps <- length(pvals)
    ks <- length(kvals)
@@ -30,7 +31,7 @@ genvec <- function(pvals, kvals, fun, name) {
 
 
 ###################################################
-### code chunk number 3: compare.Rnw:228-236
+### code chunk number 3: compare.Rnw:229-237
 ###################################################
    kvals <- c(4, 5, 6, 8, 10, 15, 20)
    pvals <- c(0.2, 0.3, 0.3679, 0.4, 0.5, 0.6)
@@ -52,7 +53,7 @@ genvec <- function(pvals, kvals, fun, name) {
 
 
 ###################################################
-### code chunk number 5: compare.Rnw:258-281
+### code chunk number 5: compare.Rnw:259-282
 ###################################################
 set.seed(18122019)
 temp <- matrix(runif(10000), nrow = 100)
@@ -93,7 +94,7 @@ dat <- data.frame(rbind(banda(fisher, lanc4),
 
 
 ###################################################
-### code chunk number 7: compare.Rnw:295-316
+### code chunk number 7: compare.Rnw:296-317
 ###################################################
 stouff <- apply(temp, 1, function(x) sumz(x)$p)
 invt4 <- apply(temp, 1, function(x) invt(x, 4)$p)
@@ -132,14 +133,23 @@ lattice::xyplot(diff ~ sum | name, data = dat,
 
 
 ###################################################
-### code chunk number 9: compare.Rnw:399-401
+### code chunk number 9: compare.Rnw:400-402
 ###################################################
 meanz(c(0.3, 0.31))$p
 meanz(c(0.1, 0.2))$p
 
 
 ###################################################
-### code chunk number 10: compare.Rnw:481-490
+### code chunk number 10: compare.Rnw:438-442
+###################################################
+log10p <- function(x) {
+   res <- round(-log(x, base = 10), 2)
+   res
+}
+
+
+###################################################
+### code chunk number 11: compare.Rnw:492-501
 ###################################################
    kvals <- c(4, 5, 6, 8, 10, 15, 20)
    pvals <- c(0.2, 0.3, 0.3679, 0.4, 0.5, 0.6)
@@ -153,7 +163,7 @@ meanz(c(0.1, 0.2))$p
 
 
 ###################################################
-### code chunk number 11: untranseqp
+### code chunk number 12: untranseqp
 ###################################################
    lattice::xyplot(g ~ k | method, groups = p, type = "l", data = dat,
       auto.key = list(space = "left", lines = TRUE, title = "p"),

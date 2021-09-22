@@ -1,5 +1,6 @@
 invt <-
-function(p, k, data = NULL, subset = NULL, na.action = na.fail) {
+function(p, k, data = NULL, subset = NULL, na.action = na.fail,
+   log.p = FALSE) {
    if(is.null(data)) data <- sys.frame(sys.parent())
    mf <- match.call()
    mf$data <- NULL
@@ -29,7 +30,7 @@ function(p, k, data = NULL, subset = NULL, na.action = na.fail) {
       z <- sum(qt(pvals, k, lower.tail = FALSE)) /
          sqrt(sum(k / (k - 2)))
       res <- list(z = z,
-         p = pnorm(z, lower.tail = FALSE), validp = pvals)
+         p = pnorm(z, lower.tail = FALSE, log.p = log.p), validp = pvals)
    }
    class(res) <- c("invt", "metap")
    res

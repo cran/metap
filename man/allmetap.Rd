@@ -31,7 +31,8 @@ allmetap(p, method = NULL)
   }
 \author{Michael Dewey}
 \examples{
-data(beckerp)
+data(dat.metap)
+beckerp <- dat.metap$beckerp
 allmetap(beckerp, method = "all")
 allmetap(beckerp, method = c("sumz", "sumlog"))
 }

@@ -9,9 +9,9 @@
 \title{Combine p-values using Wilkinson's method}
 \description{Combine \mjseqn{p}-values using Wilkinson's method\loadmathjax}
 \usage{
-wilkinsonp(p, r = 1, alpha = 0.05)
-maximump(p, alpha = 0.05)
-minimump(p, alpha = 0.05)
+wilkinsonp(p, r = 1, alpha = 0.05, log.p = FALSE)
+maximump(p, alpha = 0.05, log.p = FALSE)
+minimump(p, alpha = 0.05, log.p = FALSE)
 \method{print}{wilkinsonp}(x, ...)
 \method{print}{maximump}(x, ...)
 \method{print}{minimump}(x, ...)
@@ -20,6 +20,7 @@ minimump(p, alpha = 0.05)
   \item{p}{\sigvec}
   \item{r}{Use the \mjseqn{r}th  smallest \mjseqn{p} value}
   \item{alpha}{The significance level}
+  \item{log.p}{\logp}
   \item{x}{An object of class \sQuote{\code{wilkinsonp}}
     or of class \sQuote{\code{maximump}}
     or of class \sQuote{\code{minimump}}}
@@ -49,7 +50,6 @@ The method of minimum \mjseqn{p} is also known as Tippett's method
 \insertCite{tippett31}{metap}.
 \insertNoCite{becker94}{metap}\insertNoCite{birnbaum54}{metap}
 
-
 \plotmethod
 \nocancel
 }
@@ -70,18 +70,24 @@ a list with entries
 \insertAllCited{}
 }
 
+\note{The value of \code{critp} is always on the raw scale even
+if \code{log.p} has been set to TRUE}
+
 \author{Michael Dewey}
 \seealso{
 See also \code{\link{plotp}}
 }
 \examples{
-data(beckerp)
+data(dat.metap)
+beckerp <- dat.metap$beckerp
 minimump(beckerp) # signif = FALSE, critp = 0.0102, minp = 0.016
-data(teachexpect)
+teachexpect <- dat.metap$teachexpect
 minimump(teachexpect) # crit 0.0207, note Becker says minp = 0.0011
 wilkinsonp(c(0.223, 0.223), r = 2) # Birnbaum, just signif
-data(validity)
+validity <- dat.metap$validity
 minimump(validity) # minp = 0.00001, critp = 1.99 * 10^{-4}
 minimump(c(0.0001, 0.0001, 0.9999, 0.9999)) # is significant
+all.equal(exp(minimump(validity, log.p = TRUE)$p), minimump(validity)$p)
+all.equal(exp(maximump(validity, log.p = TRUE)$p), maximump(validity)$p)
 }
 \keyword{ htest }

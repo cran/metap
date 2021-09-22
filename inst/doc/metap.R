@@ -16,13 +16,14 @@ two2one(pvals, two = istwo, invert = toinvert)
 
 
 ###################################################
-### code chunk number 3: metap.Rnw:147-148
+### code chunk number 3: metap.Rnw:147-149
 ###################################################
-data(validity)
+data(dat.metap)
+validity <- dat.metap$validity
 
 
 ###################################################
-### code chunk number 4: metap.Rnw:153-154
+### code chunk number 4: metap.Rnw:154-155
 ###################################################
 print(validity)
 
@@ -47,7 +48,7 @@ schweder(validity, drawline = c("bh", "ls", "ab"),
 
 
 ###################################################
-### code chunk number 8: metap.Rnw:253-254
+### code chunk number 8: metap.Rnw:254-255
 ###################################################
 sumlog(validity)
 

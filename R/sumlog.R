@@ -1,5 +1,5 @@
 sumlog <-
-function(p) {
+function(p, log.p = FALSE) {
    keep <- (p > 0) & (p <= 1)
    invalid <- sum(1L * keep) < 2
    if(invalid) {
@@ -14,7 +14,8 @@ function(p) {
          warning("Some studies omitted")
       }
       res <- list(chisq = chisq, df = df,
-         p = pchisq(chisq, df, lower.tail = FALSE), validp = p[keep])
+         p = pchisq(chisq, df, lower.tail = FALSE,
+            log.p = log.p), validp = p[keep])
     }
    class(res) <- c("sumlog", "metap")
    res

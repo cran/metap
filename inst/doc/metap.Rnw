@@ -145,7 +145,8 @@ Note in particular the way in which $0.9$ is
 converted under the different scenarios.
 
 <<echo = FALSE>>=
-data(validity)
+data(dat.metap)
+validity <- dat.metap$validity
 @
 
 \subsection{Plotting}
@@ -261,6 +262,9 @@ Currently this applies to \func{invchisq} and \func{invt}.
 Stouffer's method in \func{sumz}
 optionally uses weights
 if a vector of weights is provided.
+Most of the methods allow as an option to return the
+logarithm of the $p$--value which may be useful if
+it is expected that the return value will be very small.
 
 \section{Miscellanea}
 

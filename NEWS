@@ -1,3 +1,8 @@
+Changes in version 1.5
+   - updated vignette
+   - added option to return log p
+   - combined all example data-sets into dat.metaps
+   
 Changes in version 1.4
    - fixed bug in votep (report by Wolfgang Viechtbauer)
    - fixed bug in documentation for sump although

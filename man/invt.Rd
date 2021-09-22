@@ -4,7 +4,8 @@
 \title{Combine p values using inverse t method}
 \description{Combine p values using the inverse t method\loadmathjax}
 \usage{
-invt(p, k, data = NULL, subset = NULL, na.action = na.fail)
+invt(p, k, data = NULL, subset = NULL, na.action = na.fail,
+   log.p = FALSE)
 \method{print}{invt}(x, ...)
 }
 \arguments{
@@ -14,6 +15,7 @@ invt(p, k, data = NULL, subset = NULL, na.action = na.fail)
   \item{subset}{Optional vector of logicals to specify a subset of the \mjseqn{p}-values}
   \item{na.action}{A function indicating what should happen when data
       contains NAs}
+  \item{log.p}{\logp}
   \item{x}{An object of class \sQuote{\code{invt}}}
   \item{...}{Other arguments to be passed through}
 }
@@ -52,7 +54,9 @@ See also \code{\link{plotp}}
 }
 
 \examples{
-data(beckerp)
+data(dat.metap)
+beckerp <- dat.metap$beckerp
 invt(beckerp, 50)
+all.equal(exp(invt(beckerp, 50, log.p = TRUE)$p), invt(beckerp, 50)$p)
 }
 \keyword{ htest }
