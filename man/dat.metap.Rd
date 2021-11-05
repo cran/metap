@@ -23,6 +23,14 @@ The package contains the following datasets: \code{beckerp},
   A vector of length 5
 }
     \item{\code{cholest}}{
+  A data frame with 34 observations on the following 5 variables.
+  \describe{
+    \item{\code{ntreat}}{A numeric vector of number treated}
+    \item{\code{ncontrol}}{A numeric vector of number in the control group}
+    \item{\code{dtreat}}{A numeric vector of number of deaths in the treated group}
+    \item{\code{dcontrol}}{A numeric vector of number of deaths in the control group}
+    \item{\code{p}}{a numeric vector of one sided \mjseqn{p} values}
+  }
   A vector of length 34
 }
    \item{\code{edgington}}{
@@ -49,14 +57,20 @@ The package contains the following datasets: \code{beckerp},
   }
   \item{\code{teachexpect}}{A vector of length 19
    }
-   \item{\code{validity}}{A vector of length 20
+   \item{\code{validity}}{
+   A data frame with 20 observations on the following 3 variables
+  \describe{
+    \item{\code{n}}{A numeric vector of sample sizes}
+    \item{\code{r}}{a numeric vector of correlation coefficients}
+    \item{\code{p}}{a numeric vector of one sided \mjseqn{p} values}
+  }
    }
 }
 }
 \details{
 \describe{
    \item{\code{beckerp}}{Hypothetical \mjseqn{p} values from \insertCite{becker94;textual}{metap}}
-   \item{\code{cholest}}{\mjseqn{p}-values from trials
+   \item{\code{cholest}}{\if{html}{\eqn{}}\mjseqn{p} values from trials
        of interventions for lowering cholesterol
        lowering from \insertCite{sutton00;textual}{metap}}
    \item{\code{edgington}}{Hypothetical \mjseqn{p} values from \insertCite{edgington72a;textual}{metap}}
@@ -67,12 +81,13 @@ The package contains the following datasets: \code{beckerp},
       from the National Assessment
       of Educational Progress from \insertCite{benjamini00;textual}{metap}}
    \item{\code{rosenthal}}{Hypothetical example from \insertCite{rosenthal78;textual}{metap}}
-   \item{\code{teachexpect}}{\mjseqn{p}-values from studies of the effect of
+   \item{\code{teachexpect}}{\if{html}{\eqn{}}\mjseqn{p}-values from studies of the effect of
       manipulating teacher expectancy on student IQ
       from \insertCite{becker94;textual}{metap}}
-   \item{\code{validity}}{\mjseqn{p}-values from studies of validity of
+   \item{\code{validity}}{Data from studies of validity of
       student ratings of their instructors
-      from \insertCite{becker94;textual}{metap}}
+      from \insertCite{becker94;textual}{metap}
+      including correlations and sample sizes as well as \mjseqn{p}-values}
    }
 }
 \author{Michael Dewey}

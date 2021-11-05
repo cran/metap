@@ -7,7 +7,7 @@
 \description{Combine \mjseqn{p}-values using the sum z method\loadmathjax}
 \usage{
 sumz(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail,
-   log.p = FALSE)
+   log.p = FALSE, log.input = FALSE)
 \method{print}{sumz}(x, ...)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -20,6 +20,7 @@ sumz(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail,
   \item{na.action}{A function indicating what should happen when data
       contains NAs}
   \item{log.p}{\logp}
+  \item{log.input}{\loginput}
   \item{x}{An object of class \sQuote{\code{sumz}}}
   \item{...}{Other arguments to be passed through}
 }
@@ -65,8 +66,9 @@ sumz(beckerp) # z = 1.53, NS, from Beckerp
 rosenthal <- dat.metap$rosenthal
 sumz(rosenthal$p) # 2.39, p = 0.009
 sumz(p, df, rosenthal) # 3.01, p = 0.0013
-validity <- dat.metap$validity
+validity <- dat.metap$validity$p
 sumz(validity) # z = 8.191, p = 1.25 * 10^{-16}
 all.equal(exp(sumz(validity, log.p = TRUE)$p), sumz(validity)$p)
+all.equal(sumz(log(validity), log.input = TRUE)$p, sumz(validity)$p)
 }
 \keyword{ htest }

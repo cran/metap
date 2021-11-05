@@ -11,7 +11,7 @@ cancel <- c(0.001, 0.001, 0.999, 0.999)
 ###################################################
 library(metap)
 data(dat.metap)
-validity <- dat.metap$validity
+validity <- dat.metap$validity$p
 genvec <- function(pvals, kvals, fun, name) {
    ps <- length(pvals)
    ks <- length(kvals)

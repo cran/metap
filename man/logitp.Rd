@@ -49,7 +49,7 @@ teachexpect <- dat.metap$teachexpect
 logitp(teachexpect) # t = 2.763, df = 99, p = 0.0034, from Becker
 beckerp <- dat.metap$beckerp
 logitp(beckerp) # t = 1.62, df = 29, NS, from Becker
-validity <- dat.metap$validity
+validity <- dat.metap$validity$p
 logitp(validity) # t = 9.521, df = 104, p = 3.89 * 10^{-16}
 all.equal(exp(logitp(validity, log.p = TRUE)$p), logitp(validity)$p)
 }

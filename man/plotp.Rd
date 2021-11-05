@@ -28,7 +28,7 @@ Invisibly returns a list conisting of
 }
 \examples{
 data(dat.metap)
-cholest <- dat.metap$cholest
+cholest <- dat.metap$cholest$p
 plotp(cholest)
 }
 \keyword{hplot}

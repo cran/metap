@@ -1,6 +1,12 @@
+Changes in version 1.6
+   - updated documentation
+   - added option to allow log inputs to selected functions
+   - updated vignette
+   - added more information to data-sets
+
 Changes in version 1.5
    - updated vignette
-   - added option to return log p
+   - added option to return log p to selected functions
    - combined all example data-sets into dat.metaps
    
 Changes in version 1.4

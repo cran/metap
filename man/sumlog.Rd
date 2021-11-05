@@ -58,9 +58,9 @@ beckerp <- dat.metap$beckerp
 sumlog(beckerp) # chisq = 18.533, df = 10, sig
 rosenthal <- dat.metap$rosenthal
 sumlog(rosenthal$p) # chisq = 22.97, df = 10, p = 0.006 one sided
-cholest <- dat.metap$cholest
+cholest <- dat.metap$cholest$p
 sumlog(cholest) # chisq = 58.62, df = 68, p = 0.78
-validity <- dat.metap$validity
+validity <- dat.metap$validity$p
 sumlog(validity) # chisq = 159.82, df = 40, p = 2.91 * 10^{-16}
 sumlog(c(0.0001, 0.0001, 0.9999, 0.9999)) # is significant
 all.equal(exp(sumlog(validity, log.p = TRUE)$p), sumlog(validity)$p)

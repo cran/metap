@@ -19,7 +19,7 @@ two2one(pvals, two = istwo, invert = toinvert)
 ### code chunk number 3: metap.Rnw:147-149
 ###################################################
 data(dat.metap)
-validity <- dat.metap$validity
+validity <- dat.metap$validity$p
 
 
 ###################################################

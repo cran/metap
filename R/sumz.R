@@ -1,6 +1,6 @@
 sumz <-
 function(p, weights = NULL, data = NULL, subset = NULL,
-   na.action = na.fail, log.p = FALSE)  {
+   na.action = na.fail, log.p = FALSE, log.input = FALSE)  {
    if(is.null(data)) data <- sys.frame(sys.parent())
    mf <- match.call()
    mf$data <- NULL
@@ -15,7 +15,11 @@ function(p, weights = NULL, data = NULL, subset = NULL,
    noweights <- is.null(weights)
    if(noweights) weights <- rep(1, length(p))
    if(length(p) != length(weights)) warning("Length of p and weights differ")
-   keep <- (p > 0) & (p < 1)
+   if(log.input) {
+      keep <- p < 0
+   } else {
+      keep <- (p > 0) & (p < 1)
+   }
    invalid <- sum(1L * keep) < 2
    if(invalid) {
       warning("Must have at least two valid p values")
@@ -28,8 +32,8 @@ function(p, weights = NULL, data = NULL, subset = NULL,
          if((sum(1L * omitw) > 0) & !noweights)
             warning("Weights omitted too")
       }
-      zp <- (qnorm(p[keep], lower.tail = FALSE) %*% weights[keep]) /
-         sqrt(sum(weights[keep]^2))
+      zp <- (qnorm(p[keep], lower.tail = FALSE, log.p = log.input) %*%
+         weights[keep]) / sqrt(sum(weights[keep]^2))
       res <- list(z = zp, p = pnorm(zp, lower.tail = FALSE,
             log.p = log.p),
          validp = p[keep], weights = weights)

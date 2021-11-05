@@ -1,8 +1,8 @@
 Package: metap
 Type: Package
 Title: Meta-Analysis of Significance Values
-Version: 1.5
-Date: 2021-09-21
+Version: 1.6
+Date: 2021-10-31
 Authors@R: person("Michael", "Dewey", role = c("aut", "cre"),
     email = "lists@dewey.myzen.co.uk",
     comment = c(ORCID = "0000-0002-7522-3677")
@@ -19,8 +19,8 @@ RdMacros: Rdpack,mathjaxr
 License: GPL-2
 LazyLoad: yes
 NeedsCompilation: no
-Packaged: 2021-09-21 08:53:18 UTC; MichaelUser
+Packaged: 2021-10-31 13:34:11 UTC; MichaelUser
 Author: Michael Dewey [aut, cre] (<https://orcid.org/0000-0002-7522-3677>)
 Maintainer: Michael Dewey <lists@dewey.myzen.co.uk>
 Repository: CRAN
-Date/Publication: 2021-09-22 15:30:02 UTC
+Date/Publication: 2021-11-05 13:30:02 UTC

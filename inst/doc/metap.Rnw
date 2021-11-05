@@ -146,7 +146,7 @@ converted under the different scenarios.
 
 <<echo = FALSE>>=
 data(dat.metap)
-validity <- dat.metap$validity
+validity <- dat.metap$validity$p
 @
 
 \subsection{Plotting}
@@ -262,9 +262,13 @@ Currently this applies to \func{invchisq} and \func{invt}.
 Stouffer's method in \func{sumz}
 optionally uses weights
 if a vector of weights is provided.
-Most of the methods allow as an option to return the
+Most of the methods
+(\func{invchisq, invt, logitp, meanz, sumlog, sumz, wilkinsonp})
+allow as an option to return the
 logarithm of the $p$--value which may be useful if
 it is expected that the return value will be very small.
+A smaller number (\func{invchisq, invt, sumlog})
+allow for input of log $p$--values.
 
 \section{Miscellanea}
 
