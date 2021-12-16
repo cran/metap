@@ -13,7 +13,8 @@
 \description{
 The package contains the following datasets: \code{beckerp},
    \code{cholest}, \code{edgington}, \code{mourning}, \code{naep},
-   \code{rosenthal}, \code{teachexpect}, and \code{validity}.
+   \code{rosenthal}, \code{teachexpect}, \code{validity},
+   and \code{zhang}.
 \loadmathjax}
 \usage{data(dat.metap)
 }
@@ -65,6 +66,23 @@ The package contains the following datasets: \code{beckerp},
     \item{\code{p}}{a numeric vector of one sided \mjseqn{p} values}
   }
    }
+   \item{\code{zhang}}{
+   A data frame with 22 observations on the following 11 variables
+   \describe{
+      \item{\code{study}}{Character, the study names}
+      \item{\code{smd}}{numeric, the standardised mean difference}
+      \item{\code{lo}}{numeric, the lower confidence limit}
+      \item{\code{hi}}{numeric, the upper confidence limit}
+      \item{\code{ntreat}}{numeric, the treated sample size}
+      \item{\code{ncont}}{numeric, the control sample size}
+      \item{\code{n}}{numeric, the total sample size}
+      \item{\code{phase}}{factor, what phase the patients were in:
+         acute, healing, healed}
+      \item{\code{sd}}{numeric, the calculated standard deviation}
+      \item{\code{z}}{numeric, the calculated z}
+      \item{\code{p}}{numeric, the probability associated with z}
+   }
+   }
 }
 }
 \details{
@@ -88,9 +106,16 @@ The package contains the following datasets: \code{beckerp},
       student ratings of their instructors
       from \insertCite{becker94;textual}{metap}
       including correlations and sample sizes as well as \mjseqn{p}-values}
+   \item{\code{zhang}}{Data from trials of exercise training for
+      patients with cardiovascular disease from
+      \insertCite{zhang16;textual}{metap}
    }
 }
+}
 \author{Michael Dewey}
+
+\note{The \mjseqn{p}-values in \code{cholest} have been re-calculated
+and are of higher accuracy than the ones given in the book.}
 
 \references{
 \insertAllCited{}

@@ -16,6 +16,8 @@ an informal graphical test due to Schweder
 and Spjotvoll \insertCite{schweder82}{metap}
 and the lowest slope line of Benjamini and
 Hochberg \insertCite{benjamini00}{metap}.
+The albatros plot of Harrison et al \insertCite{harrison17}{metap}
+is also provided.
 
 Some further documentation and,
 possibly, a development version

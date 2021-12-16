@@ -1,4 +1,4 @@
-allmetap <- function(p, method = NULL) {
+allmetap <- function(p, method = NULL, log.p = FALSE) {
    if(is.null(method)) stop("Must specify a method")
 mydata <-
   '"funcs","eponyms"
@@ -16,17 +16,28 @@ mydata <-
    row.names(details) <- c("logitp", "maximump", "meanp", "meanz",
       "minimump", "sumlog", "sump", "sumz")
    close(con)
+# now which have log.p as parameter
+logpfuncs <- c("logitp", "meanz", "sumlog", "sumz")
 # if all specified reset funcnames
 funcnames <- method
 if("all" %in% method) funcnames <- row.names(details)
 # check all funcnames are valid functions
 keep <- funcnames %in% row.names(details)
 if(sum(keep * 1L) != length(funcnames)) warning("Some unsupported methods specified")
-funcnames <- funcnames[keep]
+if(log.p) {
+   keep2 <- funcnames %in% logpfuncs
+} else {
+   keep2 <- keep
+}
+funcnames <- funcnames[keep2]
 if(length(funcnames) < 1) stop("No supported methods specified")
 helper <- function(x) {
    thisfunc <- match.fun(row.names(details[x,]))
-   res <- try(thisfunc(p), silent = TRUE)
+   if(log.p) {
+      res <- try(thisfunc(p, log.p = log.p), silent = TRUE)
+   } else {
+      res <- try(thisfunc(p), silent = TRUE)
+   }
    if(inherits(res, "try-error")) {
       res <- list(p = NA, valid = NA)
    } else {

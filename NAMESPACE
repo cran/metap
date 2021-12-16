@@ -1,3 +1,4 @@
+export(albatros)
 export(allmetap)
 export(invchisq)
 export(invt)
@@ -32,11 +33,11 @@ S3method(summary,truncated)
 S3method(plot,truncated)
 S3method(print,wilkinsonp)
 S3method(plot,metap)
-importFrom("graphics", "abline", "plot")
+importFrom("graphics", "abline", "axis", "lines", "mtext", "plot", "text")
 importFrom("stats", "binom.test", "coef", "lm", "na.fail",
    "pbeta", "pchisq", "pnorm", "ppoints", "pt", "qbeta", "qchisq", "qnorm",
    "qqline", "qqplot", "qunif",
-   "qt", "sd")
+   "qt", "sd", "spline")
 importFrom("utils", "read.csv")
 importFrom("lattice", "xyplot")
 importFrom("Rdpack", "reprompt")

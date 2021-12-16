@@ -5,12 +5,13 @@
 \description{Enables all or a selected number of the package
 methods to be executed on the same dataset\loadmathjax}
 \usage{
-allmetap(p, method = NULL)
+allmetap(p, method = NULL, log.p = FALSE)
 \method{print}{allmetap}(x, digits = 5, ...)
 }
 \arguments{
   \item{p}{A vector of \mjseqn{p}-values}
   \item{method}{A vector of character containing names of methods or \sQuote{\code{all}}}
+  \item{log.p}{Logical, are the \mjseqn{p}-values passed as logs?}
   \item{x}{An object of class \sQuote{\code{allmetap}}}
   \item{digits}{How many digits to print?}
   \item{...}{Other arguments to be passed through}

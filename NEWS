@@ -1,13 +1,20 @@
+Changes in version 1.7
+   - updated data-set cholest
+   - added new data-set: zhang
+   - added log.p parameter to allmetap
+   - added new plotting function: albatros
+   - updated documentation
+
 Changes in version 1.6
    - updated documentation
    - added option to allow log inputs to selected functions
    - updated vignette
-   - added more information to data-sets
+   - added more information to data-sets validity and cholest
 
 Changes in version 1.5
    - updated vignette
    - added option to return log p to selected functions
-   - combined all example data-sets into dat.metaps
+   - combined all example data-sets into dat.metap
    
 Changes in version 1.4
    - fixed bug in votep (report by Wolfgang Viechtbauer)
