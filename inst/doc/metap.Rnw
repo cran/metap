@@ -144,88 +144,46 @@ two2one(pvals, two = istwo, invert = toinvert)
 Note in particular the way in which $0.9$ is
 converted under the different scenarios.
 
-<<echo = FALSE>>=
-data(dat.metap)
-validity <- dat.metap$validity$p
-@
-
 \subsection{Plotting}
-{\codefont
-<<>>=
-print(validity)
-@
-}
 It would be a wise precaution to examine the $p$--values
 graphically or otherwise before subjecting them to further analysis.
-Two functions are provided for this purpose: \func{plotp}
-and \func{schweder}.
-
-\subsubsection{Plotting using \func{plotp}}
-
+A separate vignette discusses the range of plots
+available in the package so here we just show the
+most simple.
+As our example we use data from studies of validity of
+student ratings of their instructors \citep{becker94}.
+      
 The \func{plotp} provides a Q--Q plot of
 the $p$--values to detect departure from
 the uniform distribution.
 An example is shown in Figure \ref{plotp}.
-The standard line through through the quartiles
-is superimposed.
-This is the function which is called when the \func{plot}
-method is used on an object returned by any of the
-meta--analysis functions.
+The line is the line of exact fit to the
+reference distribution, the uniform.
+The polygon is a simultaneous confidence region
+such that if points lie outside it we
+can reject the null hypothesis that the points
+are drawn iid from a uniform.
 
 <<fig=TRUE,label=plotp,include=FALSE>>=
+data(dat.metap)
+validity <- dat.metap$validity$p
 plotp(validity)
 @
 
 \mygraph{metap-plotp}{Q--Q plot from \func{plotp}}{plotp}
 
-\subsubsection{Plotting using \func{schweder}}
+This plot is more informative than
+a simple printout.
+Note that this enhanced plot is only available from
+version 1.8 of \func{metap}.
+Previous versions usd a simpler plot.
 
-A function \func{schweder} provides plots
-with a variety of informative lines
-superimposed.
-It plots the ordered $p$--values, $p_{[i]}$, against
-$i$.
-Although the original motivation
-for the plot is \citet{schweder82}
-the function uses a different choice of axes due
-to
-\citet{benjamini00}.
-We will use an example dataset on the validity of student
-ratings quoted in \citet{becker94}.
-Figure \ref{simple} shows the plot from \func{schweder}
-which is the same as from \func{plotp} but without the line.
-
-<<fig=TRUE,label=simple,include=FALSE>>=
-schweder(validity)
+{\codefont
+<<>>=
+print(validity)
 @
+}
 
-\func{schweder} also offers the possibility of drawing one of 
-a number of straight line summaries.
-The three possible straight line summaries are
-shown in Figure \ref{withlines} and are:
-
-\begin{itemize}
-\item
-the lowest slope line of Benjaimin and Hochberg
-which is drawn by default
-as solid,
-\item
-a least squares line drawn passing through the point
-$k+1, 1$
-and using a specified fraction of the points
-which is drawn by default as dotted,
-\item
-a line with user specified
-intercept and slope
-which is drawn by default as dashed.
-\end{itemize}
-
-<<fig=TRUE,label=withlines,include=FALSE>>=
-schweder(validity, drawline = c("bh", "ls", "ab"),
-   ls.control = list(frac = 0.5), ab.control = list(a = 0, b = 0.01))
-@
-
-\twograph{metap-simple}{Simple graph}{simple}{metap-withlines}{With lines}{withlines}{Output from schweder}{schweder}
 \subsection{Reporting problems in the primary studies}
 
 Another issue is what to do with studies which have simply reported
@@ -255,6 +213,10 @@ To use Fisher's method as an example:
 sumlog(validity)
 @
 
+This confirms what was indeed obvious from the plot
+that the null hypothesis that these are drawn from
+a uniform distribution can be rejected.
+
 A few require extra information.
 Those which rely on inverse transformations
 often need a vector of degrees of freedom.
@@ -276,6 +238,11 @@ allow for input of log $p$--values.
 \item[Extractor functions]
 The standard \code{print} and \code{plot} methods
 are provided.
+\item[Omnibus function]
+A function \func{allmetap} is provided to simultaneously
+perform a number of the other functions.
+It may be useful to show how they give different results
+on the same data.
 \item[Reading]
 An annotated bibliography is provided by \citet{cousins08}
 \end{description}

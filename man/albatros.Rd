@@ -120,10 +120,17 @@ see \code{\link{par}}
 \examples{
 data(dat.metap)
 validity <- dat.metap$validity
-fit <- albatros(validity$p, validity$n,
+fit.v <- albatros(validity$p, validity$n,
    contours = list(type = "corr", contvals = c(0.25, 0.5, 0.8), ltys = 1:3),
       axes = list(ylimit = c(1,200),  lefttext = "Negative correlation",
          righttext = "Positive correlation"),
    main = "Validity")
+#
+fit.z <- albatros(dat.metap$zhang$p, dat.metap$zhang$n,
+   contours = list(type = "smd", contvals = c(0.25, 0.5, 1), ltys = 1:3),
+   plotpars = list(pchs = letters[unclass(dat.metap$zhang$phase)]),
+   axes = list(lefttext = "Favours control", righttext = "Favours exercise"),
+   main = "Zhang"
+   )
 }
 \keyword{hplot}

@@ -1,3 +1,8 @@
+Changes in version 1.8
+   - updated documentation
+   - added using qqconf for plotting
+   - added new vignette on plotting p-values
+
 Changes in version 1.7
    - updated data-set cholest
    - added new data-set: zhang

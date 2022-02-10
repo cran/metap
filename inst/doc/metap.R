@@ -16,39 +16,21 @@ two2one(pvals, two = istwo, invert = toinvert)
 
 
 ###################################################
-### code chunk number 3: metap.Rnw:147-149
+### code chunk number 3: plotp
 ###################################################
 data(dat.metap)
 validity <- dat.metap$validity$p
+plotp(validity)
 
 
 ###################################################
-### code chunk number 4: metap.Rnw:154-155
+### code chunk number 4: metap.Rnw:182-183
 ###################################################
 print(validity)
 
 
 ###################################################
-### code chunk number 5: plotp
-###################################################
-plotp(validity)
-
-
-###################################################
-### code chunk number 6: simple
-###################################################
-schweder(validity)
-
-
-###################################################
-### code chunk number 7: withlines
-###################################################
-schweder(validity, drawline = c("bh", "ls", "ab"),
-   ls.control = list(frac = 0.5), ab.control = list(a = 0, b = 0.01))
-
-
-###################################################
-### code chunk number 8: metap.Rnw:254-255
+### code chunk number 5: metap.Rnw:212-213
 ###################################################
 sumlog(validity)
 
