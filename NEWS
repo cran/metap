@@ -1,3 +1,8 @@
+Changes in version 1.9
+   - updated documentation
+   - warning if qqconf not installed
+   - removed URL from DESCRIPTION
+   
 Changes in version 1.8
    - updated documentation
    - added using qqconf for plotting

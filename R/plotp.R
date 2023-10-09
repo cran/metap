@@ -7,8 +7,12 @@ plotp <- function(pvals, plotversion = "qqconf", ...) {
    if(sum(1L * keep) != n) warning("Out of range points omitted")
    y <- validp[keep]
    n <= length(y)
-   if(requireNamespace("qqconf") & plotversion == "qqconf") {
-      qqconf::qq_conf_plot(y, distribution = qunif, ...)
+   if(plotversion == "qqconf") {
+      if(requireNamespace("qqconf")) {
+         qqconf::qq_conf_plot(y, distribution = qunif, ...)
+      } else {
+         warning("qqconf not installed, consider setting plotversion to old")
+      }
    } else {
       qqplot(qunif(ppoints(n)), y, xlab = "Theoretical",
          ylab = "Empirical", ...)
@@ -17,7 +21,7 @@ plotp <- function(pvals, plotversion = "qqconf", ...) {
    res <- list(validp = y)
    invisible(res)
 }
-plot.metap <- function(x, plotversion = "old", ...) {
+plot.metap <- function(x, plotversion = "qqconf", ...) {
    plotp(x$validp, plotversion = plotversion, ...)
    invisible(x)
 }

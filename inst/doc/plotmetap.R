@@ -20,8 +20,7 @@ plotp(validity, main = "Validity data")
 ###################################################
 ### code chunk number 3: plotfunc
 ###################################################
-fit <- sumlog(validity)
-plot(fit)
+plotp(validity, main = "Validity data", plotversion = "old")
 
 
 ###################################################
@@ -37,7 +36,7 @@ plotp(teach, log10 = TRUE)
 
 
 ###################################################
-### code chunk number 6: plotmetap.Rnw:163-164
+### code chunk number 6: plotmetap.Rnw:167-168
 ###################################################
 logitp(teach)
 

@@ -16,17 +16,22 @@ plotp(pvals, plotversion = "qqconf", ...)
 }
 \details{After eliminating out of range \mjseqn{p}--values
 and missing values produces a Q--Q plot.
+If the package \code{qqconf} is unavailable or
+\code{plotversion} is set other than "qqconf"
+then the plot uses the function from base graphics.
+The line shown is
+through the quantiles (by default the 0.25 and 0.75).
+
 If the package \code{qqconf} is available then the plot
 uses that package's function and as well as the Q--Q plot
 produces a confidence region.
 Parameters can be passed to \code{qq_conf_plot} to
 exert further control over the plot.
 
-If \code{qqconf} is unavailable or
-\code{plotversion} is set other than "qqconf"
-then the plot uses the function from base graphics.
-The line shown is
-through the quantiles (by default the 0.25 and 0.75).
+If \code{plotversion} is set to "qqconf"
+but package \code{qqconf} is not available
+then a warning is given and no plot is produced.
+
 }
 \value{
 Invisibly returns a list consisting of

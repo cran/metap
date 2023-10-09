@@ -1,17 +1,2 @@
-citHeader("To cite package 'metap' in publications use:")
-
-year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
-vers <- paste("R package version", meta$Version)
-
-citEntry(entry="Manual",
-         title = "{metap}: meta-analysis of significance values",
-         author = personList(as.person("Michael Dewey")),
-         year = year,
-         note = vers,
-
-         textVersion =
-         paste("Michael Dewey (",
-               year,
-               "). metap: meta-analysis of significance values. ",
-               vers, ".", sep=""))
+citation(auto = meta)
 

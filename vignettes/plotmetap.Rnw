@@ -87,7 +87,7 @@ the uniform distribution.
 plotp(validity, main = "Validity data")
 @
 
-\twograph{plotmetap-plotp}{Q--Q plot from \func{plotp}}{plotp}{plotmetap-plotfunc}{Q--Q plot an object of class \func{metap}}{plotfunc}{Plots of validity data}{plotvalid}
+\twograph{plotmetap-plotp}{Q--Q plot from \func{plotp}}{plotp}{plotmetap-plotfunc}{Legacy Q--Q plot}{plotfunc}{Plots of validity data}{plotvalid}
 %\mygraph{plotmetap-plotp}{Q--Q plot from \func{plotp}}{plotp}
 %\mygraph{plotmetap-plotfunc}{Q--Q plot an object of class \func{metap}}{plotfunc}
 
@@ -96,34 +96,38 @@ The line represents a fit to the uniform
 distribution and the polygon is a simultaneous
 confidence region such that if any point lies
 outside it we reject the null hypothesis
-that these are drawn iid from a uniform.
+that the points are drawn iid from a uniform.
 Small $p$--values are to the left of the plot
 
 The format of plot shown in Figure \ref{plotp} was first introduced
 in version 1.8 of \func{metap}.
 The previous plotting function is still available
-and for backwards compatibility it is what is used
-it you call the \func{plot} method
-on the objects returned by the analysis functions.
-It is also possible to produce this plot by setting
+and it is possible to produce this plot by setting
 the \func{plotversion} parameter to "old" in the call
 to \func{plotp}.
 An example is shown in Figure \ref{plotfunc}
 which first calls \func{sumlog}.
-Eventually the plot method will use the new version but the
-legacy one will always be an option.
+The
+legacy one will always remain an option.
 
 {\codefont
 <<fig=TRUE,label=plotfunc,include=FALSE>>=
-fit <- sumlog(validity)
-plot(fit)
+plotp(validity, main = "Validity data", plotversion = "old")
 @
 }
 
+Note that the \func{plot} method for objects
+of class \code{"metap"} uses the new version
+of the plot. This change was introduced in version 1.9
+of this package.
+
 There are many possible options which can be passed to
-the plotting function and the documentation for
+the plotting function and hence
+to the \func{qqconf} plotting
+routine.
+The documentation for
 the \func{qqconf} package should be consulted for details.
-The package vignette is also very helpful.
+The \func{qqconf} package vignette is also very helpful.
 We will look at one of those options here though.
 
 {\codefont
