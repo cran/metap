@@ -1,8 +1,7 @@
 \name{logitp}
 \alias{logitp}
 \alias{print.logitp}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{Combine p values using logit method}
+\title{Combine p values using the logit method}
 \description{
 Combine \mjseqn{p} values using logit method\loadmathjax
 }
@@ -10,7 +9,6 @@ Combine \mjseqn{p} values using logit method\loadmathjax
 logitp(p, log.p = FALSE)
 \method{print}{logitp}(x, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{p}{\sigvec}
   \item{log.p}{\logp}

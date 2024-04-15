@@ -2,7 +2,7 @@
 \alias{invchisq}
 \alias{Lancaster's method}
 \alias{print.invchisq}
-\title{Combine p values using inverse chi squared method}
+\title{Combine p values using the inverse chi squared method}
 \description{Combine \mjseqn{p}-values by the
 inverse chi-squared method,
 also known as Lancaster's method\loadmathjax

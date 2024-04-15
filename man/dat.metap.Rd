@@ -21,21 +21,20 @@ The package contains the following datasets: \code{beckerp},
 \format{A list with the following elements:
   \describe{
     \item{\code{beckerp}}{
-  A vector of length 5
+  A vector of length 5 hypothetical \mjseqn{p} values
 }
     \item{\code{cholest}}{
   A data frame with 34 observations on the following 5 variables.
   \describe{
-    \item{\code{ntreat}}{A numeric vector of number treated}
+    \item{\code{ntreat}}{A numeric vector of numbers in the treated group}
     \item{\code{ncontrol}}{A numeric vector of number in the control group}
     \item{\code{dtreat}}{A numeric vector of number of deaths in the treated group}
     \item{\code{dcontrol}}{A numeric vector of number of deaths in the control group}
     \item{\code{p}}{a numeric vector of one sided \mjseqn{p} values}
   }
-  A vector of length 34
 }
    \item{\code{edgington}}{
-   A vector of length 7
+   A vector of length 7 hypothetical \mjseqn{p} values
 }
     \item{\code{naep}}{A data frame with 34 observations on the following 2 variables.
   \describe{
@@ -46,7 +45,7 @@ The package contains the following datasets: \code{beckerp},
   \describe{
     \item{\code{stance}}{a factor with levels \code{No stand}, \code{Opponent}, \code{Supporter}}
     \item{\code{grade}}{a factor with levels \code{G11-12}, \code{G7-8}, \code{G9-10}}
-    \item{\code{p}}{a numeric vector}
+    \item{\code{p}}{a numeric vector of \mjseqn{p} values}
   }}
    \item{\code{rosenthal}}{
   A data frame with 5 observations on the following 3 variables.
@@ -56,7 +55,7 @@ The package contains the following datasets: \code{beckerp},
     \item{\code{p}}{a numeric vector of one sided \mjseqn{p} values}
   }
   }
-  \item{\code{teachexpect}}{A vector of length 19
+  \item{\code{teachexpect}}{A vector of length 19 hypothetical \mjseqn{p} values
    }
    \item{\code{validity}}{
    A data frame with 20 observations on the following 3 variables
@@ -69,7 +68,7 @@ The package contains the following datasets: \code{beckerp},
    \item{\code{zhang}}{
    A data frame with 22 observations on the following 11 variables
    \describe{
-      \item{\code{study}}{Character, the study names}
+      \item{\code{study}}{character, the study names}
       \item{\code{smd}}{numeric, the standardised mean difference}
       \item{\code{lo}}{numeric, the lower confidence limit}
       \item{\code{hi}}{numeric, the upper confidence limit}
@@ -89,7 +88,7 @@ The package contains the following datasets: \code{beckerp},
 \describe{
    \item{\code{beckerp}}{Hypothetical \mjseqn{p} values from \insertCite{becker94;textual}{metap}}
    \item{\code{cholest}}{\if{html}{\eqn{}}\mjseqn{p} values from trials
-       of interventions for lowering cholesterol
+       of interventions for cholesterol
        lowering from \insertCite{sutton00;textual}{metap}}
    \item{\code{edgington}}{Hypothetical \mjseqn{p} values from \insertCite{edgington72a;textual}{metap}}
    \item{\code{mourning}}{Results from a study of mourning practices of Israeli
@@ -115,7 +114,9 @@ The package contains the following datasets: \code{beckerp},
 \author{Michael Dewey}
 
 \note{The \mjseqn{p}-values in \code{cholest} have been re-calculated
-and are of higher accuracy than the ones given in the book.}
+from other data given in the book
+and so are of higher accuracy than the ones
+given in the book which are only to two decimal places.}
 
 \references{
 \insertAllCited{}

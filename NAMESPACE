@@ -34,10 +34,9 @@ S3method(plot,truncated)
 S3method(print,wilkinsonp)
 S3method(plot,metap)
 importFrom("graphics", "abline", "axis", "lines", "mtext", "plot", "text")
-importFrom("stats", "binom.test", "coef", "lm", "na.fail",
-   "pbeta", "pchisq", "pnorm", "ppoints", "pt", "qbeta", "qchisq", "qnorm",
-   "qqline", "qqplot", "qunif",
-   "qt", "sd", "spline")
+importFrom("stats", "binom.test", "coef", "lm", "na.fail", "pbeta", "pchisq",
+   "pnorm", "ppoints", "pt", "qbeta", "qchisq", "qnorm", "qqline", "qqplot",
+   "qunif", "qt", "sd", "spline")
 importFrom("utils", "read.csv")
 importFrom("lattice", "xyplot")
 importFrom("Rdpack", "reprompt")

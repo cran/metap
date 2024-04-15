@@ -3,7 +3,7 @@
 \alias{print.truncated}
 \alias{summary.truncated}
 \alias{plot.truncated}
-\title{Truncated product method routine}
+\title{Truncated product methods}
 \description{Implements two procedures for truncated versions
 of Fisher's method\loadmathjax}
 \usage{
@@ -74,4 +74,4 @@ validity <- dat.metap$validity
 truncated(validity, ptrunc = 0.5)
 truncated(validity, rtrunc = 5)
 }
-\keyword{htest1}
+\keyword{htest}

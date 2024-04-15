@@ -1,6 +1,5 @@
 \name{albatros}
 \alias{albatros}
-\alias{docontours}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Albatros plot}
 \description{Produces the albatros plot of Harrison et al\loadmathjax}
@@ -9,8 +8,6 @@ albatros(p, n, axes = list(xlimit = NULL, ylimit = NULL,
       lefttext = NULL, righttext = NULL),
    contours = list(type = NULL, contvals = NULL, ltys = NULL, contlabs = NULL),
    plotpars = list(yscale = NULL, pchs = NULL, cols = NULL), ...)
-docontours(conttype, xvals, contvals, xtrans, ytrans,
-   xlims, ylims, ltys, contlabs)
 }
 \arguments{
   \item{p}{A vector of \mjseqn{p} values}
@@ -30,6 +27,7 @@ docontours(conttype, xvals, contvals, xtrans, ytrans,
         "or", "smd"
      \item \code{contvals} a vector, what values to draw the contours at
      \item \code{ltys} a vector, what line types to use
+     \item \code{contlabs} logical, draw the labels of the countours?
      }
   }
   \item{plotpars}{A list containing
@@ -40,15 +38,6 @@ docontours(conttype, xvals, contvals, xtrans, ytrans,
       }
   }
   \item{\dots}{Arguments to be passed through to \code{plot}}
-  \item{conttype}{Character: one of "smd", "or", "corr"}
-  \item{xvals}{A vector of values to evaluate the contour}
-  \item{contvals}{The values at which contours are drawn}
-  \item{xtrans}{A function for transforming the x-axis}
-  \item{ytrans}{A function for transforming the y-axis}
-  \item{xlims}{The limits for the x-axis in plotting units}
-  \item{ylims}{The limits for the y-axis in plottng units}
-  \item{ltys}{A vector of line types for the contours}
-  \item{contlabs}{Logical, draw the labels of the contours?}
 }
 \details{Plots \mjseqn{n} against \mjseqn{p} and draws contours of
 constant effect size.
@@ -75,7 +64,7 @@ to choose suitable values.
 For the contours if the \code{type} parameter in \code{contours}
 is NULL (the default) no contours will be plotted.
 The options available are
-\dQuote{smr} (Standardised mean difference)
+\dQuote{smd} (Standardised mean difference)
 \dQuote{corr} (Correlation)
 \dQuote{or} (Odds ratio).
 
@@ -102,7 +91,7 @@ annotations are required as they give the axis limits in
 plotting units.
 }
 \value{Returns
-A list containing
+a list containing
   \item{xlims}{The limits for the x-axis in plotting units}
   \item{ylims}{The limits for the y-axis in plotting units}
 }

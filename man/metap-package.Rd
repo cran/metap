@@ -19,11 +19,6 @@ Hochberg \insertCite{benjamini00}{metap}.
 The albatros plot of Harrison et al \insertCite{harrison17}{metap}
 is also provided.
 
-Some further documentation and,
-possibly, a development version
-may be seen at
-\url{http://www.dewey.myzen.co.uk/meta/meta.html}
-
 }
 %\author{\packageAuthor{metap}}
 

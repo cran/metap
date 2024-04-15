@@ -1,7 +1,7 @@
 \name{meanz}
 \alias{meanz}
 \alias{print.meanz}
-\title{Combine p values using mean z method}
+\title{Combine p values using the mean z method}
 \description{Combines p values using the mean of z
 method\loadmathjax}
 \usage{
@@ -28,7 +28,10 @@ As can be seen if all the \mjseqn{p_i} are equal or close
 to equal this gives a \mjeqn{t=\pm\infty}{t=+-infty} leading to
 a returned value of 0 or 1. 
 A set of \mjseqn{p} values with small variance will
-necessarily give a small \mjseqn{p} value which may be smaller
+necessarily give a large value
+for \mjdeqn{\frac{\bar{z}}{s_{\bar{z}}}}{((bar{z} / s_bar{z})}
+and hence a small
+\mjseqn{p} value which may be smaller
 than that for another set all of whose primary values are less
 than any in the first set.
 See examples for a demonstration.

@@ -1,3 +1,7 @@
+Changes in version 1.10
+   - updated documentation
+   - moved docontours to internal
+
 Changes in version 1.9
    - updated documentation
    - warning if qqconf not installed

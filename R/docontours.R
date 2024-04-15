@@ -1,6 +1,15 @@
 docontours <- function(conttype, xvals, contvals, xtrans, ytrans,
    xlims, ylims, ltys, contlabs) {
 #
+# conttype Character: one of "smd", "or", "corr"}
+# xvals A vector of values to evaluate the contour}
+# contvals The values at which contours are drawn}
+# xtrans A function for transforming the x-axis}
+# ytrans A function for transforming the y-axis}
+# xlims The limits for the x-axis in plotting units}
+# ylims The limits for the y-axis in plottng units}
+# ltys A vector of line types for the contours}
+# contlabs Logical, draw the labels of the contours?}
    corr2n <- function(p, r) {
       res <- qnorm(p) ^ 2 / atanh(r) ^ 2 + 3
       res

@@ -1,7 +1,7 @@
 \name{invt}
 \alias{invt}
 \alias{print.invt}
-\title{Combine p values using inverse t method}
+\title{Combine p values using the inverse t method}
 \description{Combine p values using the inverse t method\loadmathjax}
 \usage{
 invt(p, k, data = NULL, subset = NULL, na.action = na.fail,

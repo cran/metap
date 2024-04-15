@@ -4,13 +4,12 @@
 \alias{Sum of normals method}
 \alias{print.sumz}
 \title{Combine p-values using the sum of z (Stouffer's) method}
-\description{Combine \mjseqn{p}-values using the sum z method\loadmathjax}
+\description{Combine \mjseqn{p}-values using the sum of z method\loadmathjax}
 \usage{
 sumz(p, weights = NULL, data = NULL, subset = NULL, na.action = na.fail,
    log.p = FALSE, log.input = FALSE)
 \method{print}{sumz}(x, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{p}{\sigvec}
   \item{weights}{A vector of weights}
