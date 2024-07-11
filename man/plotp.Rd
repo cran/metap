@@ -40,7 +40,7 @@ Invisibly returns a list consisting of
 \author{Michael Dewey}
 \seealso{
 \code{\link{qqplot}} and \code{\link{qqline}} for
-the original plot and \code{\link{qq_conf_plot}} for
+the original plot and \code{\link[qqconf]{qq_conf_plot}} for
 the new version.
 }
 \examples{

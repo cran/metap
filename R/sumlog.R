@@ -1,13 +1,21 @@
 sumlog <-
-function(p, log.p = FALSE) {
-   keep <- (p > 0) & (p <= 1)
+function(p, log.p = FALSE, log.input = FALSE) {
+   if(log.input) {
+      keep <- p <= 0
+   } else {
+      keep <- (p > 0) & (p <= 1)
+   }
    invalid <- sum(1L * keep) < 2
    if(invalid) {
       warning("Must have at least two valid p values")
       res <- list(chisq = NA_real_, df = NA_integer_,
          p = NA_real_, validp = p[keep])
    } else {
-      lnp <- log(p[keep])
+      if(log.input) {
+         lnp <- p[keep] # already logged
+      } else {
+         lnp <- log(p[keep])
+      }
       chisq <- (-2) * sum(lnp)
       df <- 2 * length(lnp)
       if(length(lnp) != length(p)) {

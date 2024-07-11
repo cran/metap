@@ -40,6 +40,11 @@ proportional to the square root of the sample sizes
 \ltlt{two} If the omitted \mjseqn{p} values had supplied weights
 a further warning is issued.
 
+The \code{log.input} parameter may be beneficial
+when the input values are already logged and would be
+small if exponentiated since it avoids a
+conversion.
+
 \plotmethod
 }
 \value{An object of class \sQuote{\code{sumz}} and

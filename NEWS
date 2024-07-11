@@ -1,3 +1,7 @@
+Changes in version 1.11
+   - updated documentation
+   - added log input to sumlog
+
 Changes in version 1.10
    - updated documentation
    - moved docontours to internal

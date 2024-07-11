@@ -9,12 +9,13 @@
 also known as Fisher's method, and sometimes as the
 chi-square (2) method\loadmathjax}
 \usage{
-sumlog(p, log.p = FALSE)
+sumlog(p, log.p = FALSE, log.input = FALSE)
 \method{print}{sumlog}(x, ...)
 }
 \arguments{
   \item{p}{\sigvec}
   \item{log.p}{\logp}
+  \item{log.input}{\loginput}
   \item{x}{An object of class \sQuote{\code{sumlog}}}
   \item{...}{Other arguments to be passed through}
 }
@@ -28,6 +29,11 @@ of studies \insertCite{fisher25}{metap}.
 \insertNoCite{sutton00}{metap}
 
 \ltle{two}
+
+The \code{log.input} parameter may be beneficial
+when the input values are already logged and would be
+small if exponentiated since it avoids a
+conversion.
 
 \plotmethod
 \nocancel
@@ -64,6 +70,7 @@ validity <- dat.metap$validity$p
 sumlog(validity) # chisq = 159.82, df = 40, p = 2.91 * 10^{-16}
 sumlog(c(0.0001, 0.0001, 0.9999, 0.9999)) # is significant
 all.equal(exp(sumlog(validity, log.p = TRUE)$p), sumlog(validity)$p)
+all.equal(sumlog(log(validity), log.input = TRUE)$p, sumlog(validity)$p)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

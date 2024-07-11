@@ -66,7 +66,8 @@ Michael Dewey
 }
 
 \seealso{
-\code{\link{ranktruncated}}, \code{\link{stat.tpm}}, and \code{\link{p.tpm}}
+\code{\link[mutoss]{ranktruncated}}, \code{\link[TFisher]{stat.tpm}},
+and \code{\link[TFisher]{p.tpm}}
 }
 \examples{
 data(dat.metap)
