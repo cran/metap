@@ -5,7 +5,7 @@
 \description{Enables all or a selected number of the package
 methods to be executed on the same dataset\loadmathjax}
 \usage{
-allmetap(p, method = NULL, log.p = FALSE)
+allmetap(p, method = "all", log.p = FALSE)
 \method{print}{allmetap}(x, digits = 5, ...)
 }
 \arguments{
@@ -34,8 +34,8 @@ allmetap(p, method = NULL, log.p = FALSE)
 \examples{
 data(dat.metap)
 beckerp <- dat.metap$beckerp
-allmetap(beckerp, method = "all")
-allmetap(beckerp, method = c("sumz", "sumlog"))
+allmetap(beckerp)
+allmetap(beckerp, method = c("sumz", "sumlog"), log.p = TRUE)
 }
 \keyword{htest}
 

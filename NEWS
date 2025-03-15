@@ -1,3 +1,8 @@
+Changes in version 1.12
+   - updated documentation
+   - moved look-up table for allmetap to sysdata
+   - improved printing for allmetap
+   
 Changes in version 1.11
    - updated documentation
    - added log input to sumlog

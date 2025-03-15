@@ -248,18 +248,19 @@ Most of the points clearly correspond to positive
 and substantial correlations although a
 few are in the
 opposite direction although not far from the null
-value (0.5).
+$p$--value (0.5).
 
-If the actual effect sizes are available it would be
+Of course if the actual effect sizes are available it would be
 better to use one of the conventional methods for
-meta--analysing them rather than rely on this method
-but \citet{harrison17} outline possible
-use cases.
+meta--analysing them.
+\citet{harrison17} outline possible
+use cases for this method even so.
 
-If the studies come from different groups where one might
+If the studies come from different groups one might
 use meta--regression with a moderator for group
-membership if one had the effect sizes then the
-albatros plot can display the points using different
+membership if one had the effect sizes.
+In the absence of effect sizes
+the albatros plot can display the points using different
 symbols for groups.
 This would enable a visual check on whether the groups
 differed.
