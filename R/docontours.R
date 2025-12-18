@@ -35,7 +35,7 @@ docontours <- function(conttype, xvals, contvals, xtrans, ytrans,
       valid <- FALSE
       warning(paste("Unrecognised effect type", conttype))
    } else if(conttype == "smd") {
-      contfunc <- smd2n
+      contfunc <- smd2n # set contfunc here as function for contours
    } else if(conttype == "corr") {
       contfunc <- corr2n
    } else if(conttype == "or") {
@@ -43,6 +43,7 @@ docontours <- function(conttype, xvals, contvals, xtrans, ytrans,
    }
    if(valid) {
       pvals <- c(0.4, xvals)
+      # now set up line types
       l <- length(contvals)
       if(is.null(ltys) | length(ltys != l)) {
          ltys <- 1:l
@@ -65,8 +66,10 @@ docontours <- function(conttype, xvals, contvals, xtrans, ytrans,
             texty <- temp$y[j]
             text(textx, texty, as.character(contvals[i]), pos = 2)
         } 
+        # shall we move this out of the function
          lines(temp, lty = ltys[i])
          lines(spline(-xtrans(pvals), ytrans(nvals), n = 101), lty = ltys[i])
       }
+      # shall we return anything here including when !valid
    }
 }

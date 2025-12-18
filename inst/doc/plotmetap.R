@@ -68,11 +68,16 @@ fit.v <- albatros(validity$p, validity$n,
 ###################################################
 ### code chunk number 10: zhang
 ###################################################
+data(dat.metap)
+zhang <- dat.metap$zhang
 fit.z <- albatros(zhang$p, zhang$n,
    contours = list(type = "smd", contvals = c(0.25, 0.5, 1), ltys = 1:3),
-   plotpars = list(pchs = letters[unclass(dat.metap$zhang$phase)]),
+   plotpars = list(pchs = letters[unclass(zhang$phase)]),
    axes = list(lefttext = "Favours control", righttext = "Favours exercise"),
    main = "Zhang"
-   )
+)
+legend(-4, 11, c("Acute", "Healing", "Healed"),
+   pch = c("a", "b", "c"), bg = "white"
+)
 
 

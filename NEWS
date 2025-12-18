@@ -1,3 +1,11 @@
+Changes in version 1.13
+   - documented sysdata
+   - allowed for user-supplied function for y in albatros
+   - more checks on parameters
+   - more informative error messages
+   - improved documentation
+   - expanded vignette
+   
 Changes in version 1.12
    - updated documentation
    - moved look-up table for allmetap to sysdata

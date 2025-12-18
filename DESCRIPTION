@@ -1,8 +1,8 @@
 Package: metap
 Type: Package
 Title: Meta-Analysis of Significance Values
-Version: 1.12
-Date: 2025-03-12
+Version: 1.13
+Date: 2025-12-18
 Authors@R: person("Michael", "Dewey", role = c("aut", "cre"),
     email = "lists@dewey.myzen.co.uk",
     comment = c(ORCID = "0000-0002-7522-3677")
@@ -20,8 +20,9 @@ BuildManual: TRUE
 License: GPL-2
 LazyLoad: yes
 NeedsCompilation: no
-Packaged: 2025-03-15 12:19:47 UTC; MichaelUser
-Author: Michael Dewey [aut, cre] (<https://orcid.org/0000-0002-7522-3677>)
+Packaged: 2025-12-18 13:15:58 UTC; MichaelUser
+Author: Michael Dewey [aut, cre] (ORCID:
+    <https://orcid.org/0000-0002-7522-3677>)
 Maintainer: Michael Dewey <lists@dewey.myzen.co.uk>
 Repository: CRAN
-Date/Publication: 2025-03-15 22:10:09 UTC
+Date/Publication: 2025-12-18 17:10:14 UTC

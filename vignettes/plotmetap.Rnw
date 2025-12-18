@@ -226,6 +226,12 @@ Basically it consists of plotting a possibly transformed sample
 size against the transformed $p$--values.
 The default is to use $\sqrt{N}$ for the
 $y$--axis and a log transformation for the $x$--axis.
+The scale for the y-axis is user selectable.
+The original scale in the Stata version is
+$(\log_{10}n)^2$ which is obtained by
+setting \code{yscale} to "classic".
+For small N the default of "sqrt" is very
+similar to "classic".
 The plot also contains contours of constant
 effect size.
 A number of possible options are available for effect size
@@ -266,19 +272,24 @@ This would enable a visual check on whether the groups
 differed.
 
 <<fig=TRUE,label=zhang,include=FALSE>>=
+data(dat.metap)
+zhang <- dat.metap$zhang
 fit.z <- albatros(zhang$p, zhang$n,
    contours = list(type = "smd", contvals = c(0.25, 0.5, 1), ltys = 1:3),
-   plotpars = list(pchs = letters[unclass(dat.metap$zhang$phase)]),
+   plotpars = list(pchs = letters[unclass(zhang$phase)]),
    axes = list(lefttext = "Favours control", righttext = "Favours exercise"),
    main = "Zhang"
-   )
+)
+legend(-4, 11, c("Acute", "Healing", "Healed"),
+   pch = c("a", "b", "c"), bg = "white"
+)
 @
 
 \mygraph{plotmetap-zhang}{Albatros plot of the Zhang et al data}{zhang}
 
 Figure \ref{zhang} shows an example using the Zhang et al data-set.
 The studies involved come from three groups
-corresponding to three different periods o
+corresponding to three different periods of
 initiation of exercise.
 The points
 are labelled accordingly:
@@ -288,7 +299,6 @@ The difference between the groups is quite clear here.
 In fact in \citet{zhang16} the results are handled with
 stratification into three separate analyses
 and meta--regression was not used.
-
 
 If some studies had given effect sizes but others did not then
 an albatros plot with the points marked for group

@@ -5,9 +5,9 @@
 \description{Produces the albatros plot of Harrison et al\loadmathjax}
 \usage{
 albatros(p, n, axes = list(xlimit = NULL, ylimit = NULL,
-      lefttext = NULL, righttext = NULL),
+      lefttext = NULL, righttext = NULL, xlas = 3, ylas = 2),
    contours = list(type = NULL, contvals = NULL, ltys = NULL, contlabs = NULL),
-   plotpars = list(yscale = NULL, pchs = NULL, cols = NULL), ...)
+   plotpars = list(yscale = "sqrt", yfun = NULL, pchs = NULL, cols = NULL), ...)
 }
 \arguments{
   \item{p}{A vector of \mjseqn{p} values}
@@ -19,6 +19,8 @@ albatros(p, n, axes = list(xlimit = NULL, ylimit = NULL,
      \item \code{ylimit} a vector of length 2, limits for the y-axis
      \item \code{lefttext} character, to label below plot
      \item \code{righttext} character, to label below plot
+     \item \code{xlas} numeric, las value for x-axis
+     \item \code{ylas} numeric, las value for y-axis
      }
   }
   \item{contours}{A list containing
@@ -33,13 +35,15 @@ albatros(p, n, axes = list(xlimit = NULL, ylimit = NULL,
   \item{plotpars}{A list containing
       \itemize{
       \item \code{yscale} Scaling for y-axis, See details
+      \item \code{yfun} Optional user function for scaling y-axi
       \item \code{pchs} Symbols to be used
       \item \code{cols} Colours for points
       }
   }
   \item{\dots}{Arguments to be passed through to \code{plot}}
 }
-\details{Plots \mjseqn{n} against \mjseqn{p} and draws contours of
+\details{Plots \mjseqn{n}, possibly
+transformed, against trnsformed \mjseqn{p} and draws contours of
 constant effect size.
 \insertNoCite{harrison17}{metap}
 
@@ -54,19 +58,31 @@ but it is
 also possible to use \mjeqn{\sqrt{n}}{sqrt(n)}
 which is the default or \mjseqn{n} by setting
 \code{yscale} to "n".
+Setting \code{yscale} to "userfun" allows for the
+user to supply a function for transformation.
+The function (of a single
+argument) should be given to the \code{userfun}
+parameter.
+
 If the dataset contains extreme values the
 plot may be uninformative and the \code{xlimit}
 and \code{ylimit} parameters my be helpful to clip
 the plot.
 If they are not specified the function tries
 to choose suitable values.
+The values for \code{xlas} and \code{ylas}
+control the orientation of the tick labels
+relative to the plot.
+The default values are usually satisfactory
+but if there are many ticks they may need
+setting explicitly.
 
 For the contours if the \code{type} parameter in \code{contours}
 is NULL (the default) no contours will be plotted.
 The options available are
-\dQuote{smd} (Standardised mean difference)
-\dQuote{corr} (Correlation)
-\dQuote{or} (Odds ratio).
+\dQuote{smd} (standardised mean difference)
+\dQuote{corr} (correlation)
+\dQuote{or} (odds ratio).
 
 The contours are labelled unless contlabs is set to \code{FALSE}.
 The function tries to position these so they are not obscured
@@ -89,17 +105,25 @@ By default they are not produced.
 The return values from the function may be useful if further
 annotations are required as they give the axis limits in
 plotting units.
+These are what are needed for the arguments to
+\code{legend} for instance.
+Note that zero or one are not valid \mjseqn{p}-values and
+are silently removed and values of
+\mjseqn{n} less than 2
+are not plotted.
 }
 \value{Returns
 a list containing
   \item{xlims}{The limits for the x-axis in plotting units}
   \item{ylims}{The limits for the y-axis in plotting units}
+  \item{validp}{The valid values for p}
+  \item{validn}{The valid values for n}
 }
 \references{
 \insertAllCited{}
 }
 \author{Michael Dewey}
-\note{The docontours function is for internal use only}
+%\note{The docontours function is for internal use only}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
